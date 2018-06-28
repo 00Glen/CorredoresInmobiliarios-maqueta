@@ -138,7 +138,14 @@
 }
 
 .form-group-info .isec {
-    width: 10%;
+    width: 5%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 2px;
+}
+
+.form-group-meter .isec {
+    width: 6%;
     display: inline-block;
     vertical-align: top;
     padding: 2px;
@@ -782,5 +789,9 @@ ul > li > a.pag-active{
 
 ul > span.span-arrow{
     padding: 0 0.5rem 0 0rem !important
+}
+
+.icono-size-4{
+    width: 4% !important;
 }
 
