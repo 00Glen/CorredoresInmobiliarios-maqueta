@@ -809,7 +809,7 @@ ul > span.span-arrow{
     width: 100%;
     height: 48px;
     text-align: center;
-    padding-top: 0.8rem;
+    display: grid;
 }
 
 .img-text-over span{
