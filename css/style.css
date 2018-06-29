@@ -352,78 +352,345 @@
     margin-right: auto;
 }
 
-.modal-message {
-    /*background: rgba(7, 33, 70, 0.84);*/
-    background: rgba(54, 54, 54, 0.85);
+.waitmodal {
+    background-color: rgba(255, 255, 255, 0.9);
     z-index: 10;
 }
 
-.modal-message .inner {
-    background: #ffffff;
-    box-shadow: 3px 3px 13px 6px rgba(0, 0, 0, 0.1);
-    width: 600px;
-    text-align: center;
+
+/*SPINNER*/
+
+.spinner {
+    box-sizing: border-box;
+    pointer-events: none;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    ;
 }
 
-.modal-message .icon-area {
-    padding: 46px 0px;
-    color: #ffffff;
+.spinner([hidden]),
+[hidden] {
+    display: none;
 }
 
-.modal-message.success .icon-area {
-    background: #86c82d;
+.spinner([paused]) .stripe {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
 }
 
-.modal-message.error .icon-area {
-    background: #C8175E;
+.spinner *,
+.spinner *:before,
+.spinner *:after {
+    box-sizing: border-box;
 }
 
-.modal-message.warning .icon-area {
-    background: #F6891E;
+svg {
+    display: none;
 }
 
-.modal-message.success .bbva-icon_message:before {
-    content: "\ea58";
+figure {
+    margin: auto;
+    height: 3em;
+    width: 2.5em;
+    position: relative;
+    ;
 }
 
-.modal-message.error .bbva-icon_message:before {
-    content: "\ea59";
+.stripe--item-1,
+.stripe--item-3,
+.stripe--item-5 {
+    height: 0.72em;
 }
 
-.modal-message.warning .bbva-icon_message:before {
-    content: "\eaa2";
+.stripe {
+    contain: layout style;
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    stroke: none;
+    -webkit-animation-duration: 2.8s;
+    animation-duration: 2.8s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    ;
 }
 
-.modal-message .icon-area i {
-    font-size: 47px;
+.stripe--item-1 {
+    background: #2a86ca;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    ;
 }
 
-.modal-message p {
-    margin-top: 15px;
-    margin-bottom: 20px;
-    font-size: 16px;
+.stripe--item-2 {
+    -webkit-animation-name: st2;
+    animation-name: st2;
+    ;
 }
 
-.modal-message p.tit {
-    font-size: 18px;
-    font-family: "BentonSansBBVA-Bold", Helvetica, Arial, sans-serif;
+.stripe--item-3 {
+    background: #004481;
+    -webkit-animation-name: st3;
+    animation-name: st3;
+    ;
 }
 
-.modal-message.success p.tit:before {
-    content: "Correcto!";
+.stripe--item-4 {
+    -webkit-animation-name: st4;
+    animation-name: st4;
+    ;
 }
 
-.modal-message.error p.tit:before {
-    content: "Error";
+.stripe--item-5 {
+    background: #2dcccd;
+    -webkit-animation-name: st5;
+    animation-name: st5;
+    ;
 }
 
-.modal-message.warning p.tit:before {
-    content: "Aviso!";
+@-webkit-keyframes st2 {
+    0% {
+        -webkit-transform: translate(0, 3em);
+        transform: translate(0, 3em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    25% {
+        -webkit-transform: translate(0, 0.66em);
+        transform: translate(0, 0.66em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    50% {
+        -webkit-transform: translate(0, 3em);
+        transform: translate(0, 3em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    75% {
+        -webkit-transform: translate(0, 1.8em);
+        transform: translate(0, 1.8em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    100% {
+        -webkit-transform: translate(0, 3em);
+        transform: translate(0, 3em);
+    }
 }
 
-.modal-message .btn-area {
-    padding-bottom: 15px;
+@keyframes st2 {
+    0% {
+        -webkit-transform: translate(0, 3em);
+        transform: translate(0, 3em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    25% {
+        -webkit-transform: translate(0, 0.66em);
+        transform: translate(0, 0.66em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    50% {
+        -webkit-transform: translate(0, 3em);
+        transform: translate(0, 3em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    75% {
+        -webkit-transform: translate(0, 1.8em);
+        transform: translate(0, 1.8em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    100% {
+        -webkit-transform: translate(0, 3em);
+        transform: translate(0, 3em);
+    }
 }
+
+@-webkit-keyframes st3 {
+    0% {
+        -webkit-transform: scale(1, 0.99742) translate(0, -100%);
+        transform: scale(1, 0.99742) translate(0, -100%);
+    }
+    25% {
+        -webkit-transform: scale(1, 0.99742) translate(0, -100%);
+        transform: scale(1, 0.99742) translate(0, -100%);
+    }
+    50% {
+        -webkit-transform: scale(1, 0.99742) translate(0, -100%);
+        transform: scale(1, 0.99742) translate(0, -100%);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    75% {
+        -webkit-transform: scale(1, 2.4) translate(0, -100%);
+        transform: scale(1, 2.4) translate(0, -100%);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    100% {
+        -webkit-transform: scale(1, 0.99742) translate(0, -100%);
+        transform: scale(1, 0.99742) translate(0, -100%);
+    }
+}
+
+@keyframes st3 {
+    0% {
+        -webkit-transform: scale(1, 0.99742) translate(0, -100%);
+        transform: scale(1, 0.99742) translate(0, -100%);
+    }
+    25% {
+        -webkit-transform: scale(1, 0.99742) translate(0, -100%);
+        transform: scale(1, 0.99742) translate(0, -100%);
+    }
+    50% {
+        -webkit-transform: scale(1, 0.99742) translate(0, -100%);
+        transform: scale(1, 0.99742) translate(0, -100%);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    75% {
+        -webkit-transform: scale(1, 2.4) translate(0, -100%);
+        transform: scale(1, 2.4) translate(0, -100%);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    100% {
+        -webkit-transform: scale(1, 0.99742) translate(0, -100%);
+        transform: scale(1, 0.99742) translate(0, -100%);
+    }
+}
+
+@-webkit-keyframes st4 {
+    0% {
+        -webkit-transform: translate(0, 0.374em);
+        transform: translate(0, 0.374em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    25% {
+        -webkit-transform: translate(0, 2em);
+        transform: translate(0, 2em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    50% {
+        -webkit-transform: translate(0, 0.374em);
+        transform: translate(0, 0.374em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    75% {
+        -webkit-transform: translate(0, 2.626em);
+        transform: translate(0, 2.626em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    100% {
+        -webkit-transform: translate(0, 0.3734em);
+        transform: translate(0, 0.3734em);
+    }
+}
+
+@keyframes st4 {
+    0% {
+        -webkit-transform: translate(0, 0.374em);
+        transform: translate(0, 0.374em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    25% {
+        -webkit-transform: translate(0, 2em);
+        transform: translate(0, 2em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    50% {
+        -webkit-transform: translate(0, 0.374em);
+        transform: translate(0, 0.374em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    75% {
+        -webkit-transform: translate(0, 2.626em);
+        transform: translate(0, 2.626em);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    100% {
+        -webkit-transform: translate(0, 0.3734em);
+        transform: translate(0, 0.3734em);
+    }
+}
+
+@-webkit-keyframes st5 {
+    0% {
+        -webkit-transform: scale(1, 0.99742) translate(0%, -50%);
+        transform: scale(1, 0.99742) translate(0%, -50%);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    25% {
+        -webkit-transform: scale(1, 2.4) translate(0%, -50%);
+        transform: scale(1, 2.4) translate(0%, -50%);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    50% {
+        -webkit-transform: scale(1, 0.99742) translate(0%, -50%);
+        transform: scale(1, 0.99742) translate(0%, -50%);
+    }
+    75% {
+        -webkit-transform: scale(1, 0.99742) translate(0%, -50%);
+        transform: scale(1, 0.99742) translate(0%, -50%);
+    }
+    100% {
+        -webkit-transform: scale(1, 0.99742) translate(0%, -50%);
+        transform: scale(1, 0.99742) translate(0%, -50%);
+    }
+}
+
+@keyframes st5 {
+    0% {
+        -webkit-transform: scale(1, 0.99742) translate(0%, -50%);
+        transform: scale(1, 0.99742) translate(0%, -50%);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    25% {
+        -webkit-transform: scale(1, 2.4) translate(0%, -50%);
+        transform: scale(1, 2.4) translate(0%, -50%);
+        -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    50% {
+        -webkit-transform: scale(1, 0.99742) translate(0%, -50%);
+        transform: scale(1, 0.99742) translate(0%, -50%);
+    }
+    75% {
+        -webkit-transform: scale(1, 0.99742) translate(0%, -50%);
+        transform: scale(1, 0.99742) translate(0%, -50%);
+    }
+    100% {
+        -webkit-transform: scale(1, 0.99742) translate(0%, -50%);
+        transform: scale(1, 0.99742) translate(0%, -50%);
+    }
+}
+
+
+/*END SPINNER*/
 
 .jumbotron__image {
     width: 8%;
@@ -527,7 +794,7 @@
     display: flex!important;
 }
 
-.acc_aho_tag_p{
+.acc_aho_tag_p {
     font-family: BentonSansBBVA-Medium;
     font-size: 16px;
     color: #121212;
@@ -535,24 +802,25 @@
     text-align: center;
     line-height: 24px;
 }
-.acc_aho_tag_a{
+
+.acc_aho_tag_a {
     font-family: BentonSansBBVA-Bold;
     font-size: 15px;
     color: #2A86CA;
     line-height: 24px;
 }
 
-.text-center{
+.text-center {
     text-align: center;
 }
 
-.footer-bbva-corredores{
+.footer-bbva-corredores {
     position: fixed;
     bottom: 0;
     width: 100%;
 }
 
-.justify-content-center-bbva{
+.justify-content-center-bbva {
     -webkit-box-pack: center!important;
     -ms-flex-pack: center!important;
     justify-content: center!important;
@@ -631,13 +899,13 @@
     flex: 0 0 100%;
     max-width: 100%
 }
-    
-.img-fluid-bbva{
-    max-width:100%;
-    height:auto;
+
+.img-fluid-bbva {
+    max-width: 100%;
+    height: auto;
 }
 
-.img-auto{
+.img-auto {
     width: auto;
 }
 
@@ -735,53 +1003,54 @@
     max-width: none
 }
 
-.fases-height{
+.fases-height {
     height: 22rem;
 }
 
-.fases-title{
-    padding:0 16px;
+.fases-title {
+    padding: 0 16px;
     font-family: BentonSansBBVA-Medium;
     font-size: 16px;
     color: #040404;
     letter-spacing: 0;
 }
 
-.fnt-size-35{
+.fnt-size-35 {
     font-size: 35px;
 }
 
-.fnt-size-25{
+.fnt-size-25 {
     font-size: 25px;
 }
 
-div > .casos-paginacion {
-    text-align: center; 
+div>.casos-paginacion {
+    text-align: center;
     padding-bottom: 2.5rem;
     padding-top: 1rem;
 }
 
-div > .casos-paginacion > ul {
+div>.casos-paginacion>ul {
     display: inline-flex;
 }
 
-div > .casos-paginacion > ul > li{
+div>.casos-paginacion>ul>li {
     padding: 0rem 1rem 0rem 0rem;
     display: inline-block;
 }
-.casos-paginacion ul li:not(:last-of-type):after{
+
+.casos-paginacion ul li:not(:last-of-type):after {
     content: '|';
     padding-left: 1rem;
-    color:gray;
+    color: gray;
 }
 
-div > .casos-paginacion > ul > span > a > img.arrow-right {
+div>.casos-paginacion>ul>span>a>img.arrow-right {
     transform: rotate(180deg);
     padding: 0;
 }
 
-div > .casos-paginacion > ul > li > a{
-    padding: 0; 
+div>.casos-paginacion>ul>li>a {
+    padding: 0;
     font-family: BentonSansBBVA-Medium;
     font-size: 15px;
     color: #1973B8;
@@ -789,19 +1058,19 @@ div > .casos-paginacion > ul > li > a{
     line-height: 24px;
 }
 
-ul > li > a.pag-active{
+ul>li>a.pag-active {
     color: #121212 !important;
 }
 
-ul > span.span-arrow{
+ul>span.span-arrow {
     padding: 0 0.5rem 0 0rem !important
 }
 
-.icono-size-4{
+.icono-size-4 {
     width: 4% !important;
 }
 
-.img-text-over{
+.img-text-over {
     background-image: url('../images/icons/text.png');
     background-repeat: no-repeat;
     background-size: contain;
@@ -812,7 +1081,7 @@ ul > span.span-arrow{
     display: grid;
 }
 
-.img-text-over span{
+.img-text-over span {
     font-size: 20px;
     font-family: BentonSansBBVA-Book;
     font-size: 22px;

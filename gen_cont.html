@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="form-group-info">
                                     <div class="isec">
-                                    	<img src="images/icons/warning-icon.png" alt="warning-icon">
+                                        <img src="images/icons/warning-icon.png" alt="warning-icon">
                                     </div>
                                     <div class="itextsec">La contraseña debe tener mínimo 10 y máximo 15 caracteres, solo abecedario inglés, mínimo una mayuscula y un número; no debe tener caracteres especiales, espacio, letras o números de forma ascendente o descendente;
                                         ni más de 2 números o letras iguales o consecutivas, a partir de 3 caracteres.
@@ -139,6 +139,23 @@
                 </div>
             </footer>
         </div>
+        <div class="waitmodal outer" style="display: none;" id="waitmodal">
+            <div class="middle">
+                <div class="inner">
+                    <div class="spinner">
+                        <figure>
+                            <div class="stripe stripe--item-1"></div>
+                            <div class="stripe stripe--item-2">
+                                <div class="stripe stripe--item-3"></div>
+                            </div>
+                            <div class="stripe stripe--item-4">
+                                <div class="stripe stripe--item-5"></div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="./js/bbva.publish.js"></script>
     <script src="js/bundle.js"></script>
@@ -155,6 +172,16 @@
                 _this_i.removeClass("blue1");
             }
         });
+    </script>
+    <script>
+        //modal de espera
+        function showWait() {
+            document.getElementById("waitmodal").removeAttribute("style");
+        }
+
+        function hideWait() {
+            document.getElementById("waitmodal").style = "display: none;";
+        }
     </script>
     <script>
         //Fortaleza de contraseña
@@ -211,7 +238,7 @@
         }
         $("#password1").keyup(function() {
             result = metrics[fn.validatePassword($(this).val())];
-            var position = fn.validatePassword($(this).val()) ; 
+            var position = fn.validatePassword($(this).val());
             $('#meterbar').css({
                 '-webkit-transform': 'skewX(-50deg) scaleX(' + result.size + ')',
                 '-moz-transform': 'skewX(-50deg) scaleX(' + result.size + ')',
@@ -225,7 +252,7 @@
             if (position == "1" || position == "2" || position == "3" || position == "4") {
                 console.log(position);
                 $(".form-group-meter .isec").addClass(result.clase);
-            }else{
+            } else {
                 $(".form-group-meter .isec").removeClass(result.clase);
             }
             $(".form-group-meter p").text(result.text);
@@ -251,20 +278,23 @@
                 $("a[title='Continuar']").removeClass("btn__disabled");
                 $("a[title='Continuar']").click(function(event) {
                     event.preventDefault();
-                    if (fn.validatePassword($("#password1").val()) == 3) {
-                        if ($("#password2").val() != $("#password1").val()) {
-                            showInputError($("#password2"), "Las contraseñas no coinciden", {
-                                "eventx": "keyup",
-                                "validation": function() {
-                                    return $("#password2").val() == $("#password1").val();
-                                }
-                            });
-                            return;
-                        } else {
-                            //todo está bien
-                            window.location.href = 'preg_seg.html';
+                    showWait();
+                    setTimeout(() => {
+                        if (fn.validatePassword($("#password1").val()) == 3) {
+                            if ($("#password2").val() != $("#password1").val()) {
+                                showInputError($("#password2"), "Las contraseñas no coinciden", {
+                                    "eventx": "keyup",
+                                    "validation": function() {
+                                        return $("#password2").val() == $("#password1").val();
+                                    }
+                                });
+                                return;
+                            } else {
+                                //todo está bien
+                                window.location.href = 'preg_seg.html';
+                            }
                         }
-                    }
+                    }, 1000);
                 })
             }
         }
