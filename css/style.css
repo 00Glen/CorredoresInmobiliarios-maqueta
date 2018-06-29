@@ -755,52 +755,6 @@
     font-size: 25px;
 }
 
-div > .casos-paginacion {
-    text-align: center; 
-    padding-bottom: 2.5rem;
-    padding-top: 1rem;
-}
-
-div > .casos-paginacion > ul {
-    display: inline-flex;
-}
-
-div > .casos-paginacion > ul > li{
-    padding: 0rem 1rem 0rem 0rem;
-    display: inline-block;
-}
-.casos-paginacion ul li:not(:last-of-type):after{
-    content: '|';
-    padding-left: 1rem;
-    color:gray;
-}
-
-div > .casos-paginacion > ul > span > a > img.arrow-right {
-    transform: rotate(180deg);
-    padding: 0;
-}
-
-div > .casos-paginacion > ul > li > a{
-    padding: 0; 
-    font-family: BentonSansBBVA-Medium;
-    font-size: 15px;
-    color: #1973B8;
-    letter-spacing: 0;
-    line-height: 24px;
-}
-
-ul > li > a.pag-active{
-    color: #121212 !important;
-}
-
-ul > span.span-arrow{
-    padding: 0 0.5rem 0 0rem !important
-}
-
-.icono-size-4{
-    width: 4% !important;
-}
-
 .img-text-over{
     background-image: url('../images/icons/text.png');
     background-repeat: no-repeat;
@@ -817,5 +771,98 @@ ul > span.span-arrow{
     font-family: BentonSansBBVA-Book;
     font-size: 22px;
     color: #FFFFFF;
+    line-height: 24px;
+}
+
+div > .casos-paginacion {
+    text-align: center; 
+    padding-bottom: 2.5rem;
+    padding-top: 1rem;
+}
+
+.casos-paginacion > ul {
+    display: inline-flex;
+}
+
+.casos-paginacion > ul > li:not(:first-child):not(:nth-child(2)):not(:nth-last-child(2)):not(:last-of-type){
+    padding: 0rem 1rem 0rem 0rem;
+    display: inline-block;
+}
+.casos-paginacion ul.pagination li:not(:last-of-type):after{
+    content: '|';
+    padding-left: 1rem;
+    color:gray;
+}
+
+.casos-paginacion ul.pagination li:nth-last-child(2):after{
+    content: '';
+    padding: 0rem;
+}
+
+.casos-paginacion ul.pagination li:nth-last-child(3):after{
+    content: '';
+    padding: 0rem;
+}
+
+.casos-paginacion ul.pagination li:first-child:after{
+    content: '';
+    padding: 0rem;
+}
+
+.casos-paginacion ul.pagination li:nth-child(2):after{
+    content: '';
+    padding: 0rem;
+}
+
+a > img.arrow-right {
+    transform: rotate(180deg);
+    padding: 0;
+}
+
+div > .casos-paginacion .pagination > ul > li > a{
+    padding: 0; 
+    font-family: BentonSansBBVA-Medium;
+    font-size: 15px;
+    color: #1973B8;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+
+.page-active a{
+    color: #121212 !important;
+}
+
+ul.pagination > span.span-arrow{
+    padding: 0 0.5rem 0 0rem !important
+}
+
+.icono-size-4{
+    width: 4% !important;
+}
+
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+}
+
+.pagination-sm>li>a, .pagination-sm>li>span {
+    padding: 5px 10px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 0.1rem 4px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    background-color: #fff;
+    font-family: BentonSansBBVA-Medium;
+    font-size: 15px;
+    color: #1973B8;
+    letter-spacing: 0;
     line-height: 24px;
 }

@@ -431,15 +431,7 @@
                         </tbody>
                     </table>
                     <div class="casos-paginacion">
-                        <ul>
-                            <li><a href="#1" class="pag-active" title="paginacion">1</a></li>
-                            <li><a href="#2" title="paginacion">2</a></li>
-                            <li><a href="#3" title="paginacion">3</a></li>
-                            <li><a href="#4" title="paginacion">4</a></li>
-                            <li><a href="#5" title="paginacion">5</a></li>
-                            <span class="span-arrow"><a href="#" title="one"><img class="arrow-right" src="images/tabla/Unfilled.svg" alt=""></a></span>
-                            <span class="span-arrow"><a href="#" title="last"><img class="arrow-right" src="images/tabla/Last-Page.svg" alt=""></a></span>
-                        </ul>
+                        <ul class="pagination" id="pagination"></ul>
                     </div>
                 </div>
             </section>
@@ -484,8 +476,29 @@
     </div>
     <script src="./js/bbva.publish.js"></script>
     <script src="js/bundle.js"></script>
+    <script src="js/jquery.twbsPagination.js"></script>
     <script type="text/javascript" charset="utf-8" async defer>
-        $(document).ready(function() {
+        $(function () {
+            $("li.first").hide();
+            $("li.prev").hide();
+
+            var obj = $('#pagination').twbsPagination({
+                totalPages: 23,
+                visiblePages: 5,
+                onPageClick: function (event, page) {
+                    console.info(page);
+                    paginacion(page);
+                    if (page>=4) {
+                        $("li.first").show();
+                        $("li.prev").show();
+                    }else{
+                        $("li.first").hide();
+                        $("li.prev").hide();
+                    }
+                }
+            });
+            console.info(obj.data());
+
             $("a[title='filtrar']").click(function(event) {
                 $("#colapso").toggle('slow', 'linear', function() {
                     if ($("a[title='filtrar']").text() == 'Filtrar casos') {
@@ -538,55 +551,36 @@
                 window.location.href = 'login.html';
             });
 
-            $("a[title='one']").click(function(event) {
-                if ($("ul > li > a").has('pag-active')) {
-                    
-                }
-            });
 
-            $("a[title='paginacion']").click(function(event) {
-                event.preventDefault();
-                  
-                var num = $(this).text() || 1;
+            function paginacion(num) {
+                var num = parseInt(num) || 1;
                 switch (num) {
-                    case "1":
-                        $("ul li a").removeClass('pag-active');
-                        $(this).fadeIn('slow').addClass('pag-active');
+                    case 1:
                         $("#page-1").fadeIn('slow').show();
                         $("#page-2, #page-3, #page-4, #page-5").hide();
                         break;
-                    case "2":
-                        $("ul li a").removeClass('pag-active');
-                        $(this).fadeIn('slow').addClass('pag-active');
+                    case 2:
                         $("#page-2").fadeIn('slow').show();
                         $("#page-1, #page-3, #page-4, #page-5").hide();
                         break; 
-                    case "3":
-                        $("ul li a").removeClass('pag-active');
-                        $(this).fadeIn('slow').addClass('pag-active');
+                    case 3:
                         $("#page-3").fadeIn('slow').show();
                         $("#page-2, #page-1, #page-4, #page-5").hide();
                         break;
-                    case "4":
-                        $("ul li a").removeClass('pag-active');
-                        $(this).fadeIn('slow').addClass('pag-active');
+                    case 4:
                         $("#page-4").fadeIn('slow').show();
                         $("#page-2, #page-3, #page-1, #page-5").hide();
                         break;
-                    case "5":
-                        $("ul li a").removeClass('pag-active');
-                        $(this).fadeIn('slow').addClass('pag-active');
+                    case 5:
                         $("#page-5").fadeIn('slow').show();
                         $("#page-2, #page-3, #page-4, #page-1").hide();
                         break;
                     default: 
-                        $("ul li a").removeClass('pag-active');
-                        $(this).fadeIn('slow').addClass('pag-active');
                         $("#page-1").fadeIn('slow').show();
                         $("#page-2, #page-3, #page-4, #page-5").hide();
                         break;
                 }
-            });
+            }
 
         });
     </script>
