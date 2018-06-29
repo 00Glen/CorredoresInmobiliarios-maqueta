@@ -279,23 +279,28 @@
                 $("a[title='Continuar']").click(function(event) {
                     event.preventDefault();
                     showWait();
-                    setTimeout(() => {
-                        if (fn.validatePassword($("#password1").val()) == 3) {
-                            if ($("#password2").val() != $("#password1").val()) {
-                                showInputError($("#password2"), "Las contraseñas no coinciden", {
-                                    "eventx": "keyup",
-                                    "validation": function() {
-                                        return $("#password2").val() == $("#password1").val();
-                                    }
-                                });
-                                return;
-                            } else {
-                                //todo está bien
+
+                    if (fn.validatePassword($("#password1").val()) == 3) {
+                        if ($("#password2").val() != $("#password1").val()) {
+                            showInputError($("#password2"), "Las contraseñas no coinciden", {
+                                "eventx": "keyup",
+                                "validation": function() {
+                                    return $("#password2").val() == $("#password1").val();
+                                }
+                            });
+                            return;
+                        } else {
+                            //todo está bien
+                            setTimeout(() => {
                                 window.location.href = 'preg_seg.html';
-                            }
+                            }, 1000);
                         }
-                    }, 1000);
+                    }
+
                 })
+            } else {
+                $("a[title='Continuar']").removeClass("btn__medium-blue");
+                $("a[title='Continuar']").addClass("btn__disabled");
             }
         }
         $("#password1").keyup(checkInputs);
