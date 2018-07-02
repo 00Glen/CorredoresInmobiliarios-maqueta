@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="form-group-info">
                                     <div class="isec">
-                                    	<img src="images/icons/warning-icon.png" alt="u38.png">
+                                    	<img src="images/icons/warning-icon.png" alt="warning-icon">
                                     </div>
                                     <div class="itextsec">La contraseña debe tener mínimo 10 y máximo 15 caracteres, solo abecedario inglés, mínimo una mayuscula y un número; no debe tener caracteres especiales, espacio, letras o números de forma ascendente o descendente;
                                         ni más de 2 números o letras iguales o consecutivas, a partir de 3 caracteres.
@@ -139,6 +139,23 @@
                 </div>
             </footer>
         </div>
+		<div class="waitmodal outer" style="display: none;" id="waitmodal">
+            <div class="middle">
+                <div class="inner">
+                    <div class="spinner">
+                        <figure>
+                            <div class="stripe stripe--item-1"></div>
+                            <div class="stripe stripe--item-2">
+                                <div class="stripe stripe--item-3"></div>
+                            </div>
+                            <div class="stripe stripe--item-4">
+                                <div class="stripe stripe--item-5"></div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>																     
     </div>
     <script src="./js/bbva.publish.js"></script>
     <script src="js/bundle.js"></script>
@@ -157,6 +174,16 @@
         });
     </script>
     <script>
+		//modal de espera
+        function showWait() {
+            document.getElementById("waitmodal").removeAttribute("style");
+        }
+
+        function hideWait() {
+            document.getElementById("waitmodal").style = "display: none;";
+        }
+    </script>
+    <script>				 
         //Fortaleza de contraseña
         const expRegAscNum = /012|123|234|345|456|567|678|789/;
         const expRegDesNum = /987|876|765|654|543|432|321|210/;
@@ -211,7 +238,7 @@
         }
         $("#password1").keyup(function() {
             result = metrics[fn.validatePassword($(this).val())];
-            var position = fn.validatePassword($(this).val()) ; 
+            var position = fn.validatePassword($(this).val()); 
             $('#meterbar').css({
                 '-webkit-transform': 'skewX(-50deg) scaleX(' + result.size + ')',
                 '-moz-transform': 'skewX(-50deg) scaleX(' + result.size + ')',
@@ -223,6 +250,7 @@
 
             $(".form-group-meter .isec img").attr('src', "images/icons/" + result.icono);
             if (position == "1" || position == "2" || position == "3" || position == "4") {
+				console.log(position);				  
                 $(".form-group-meter .isec").addClass(result.clase);
             }else{
                 $(".form-group-meter .isec").removeClass(result.clase);
@@ -250,6 +278,8 @@
                 $("a[title='Continuar']").removeClass("btn__disabled");
                 $("a[title='Continuar']").click(function(event) {
                     event.preventDefault();
+                    showWait();
+
                     if (fn.validatePassword($("#password1").val()) == 3) {
                         if ($("#password2").val() != $("#password1").val()) {
                             showInputError($("#password2"), "Las contraseñas no coinciden", {
@@ -260,10 +290,17 @@
                             });
                             return;
                         } else {
-                            window.location.href = 'acc_aho.html';
+                            //todo está bien
+                            setTimeout(() => {
+                                window.location.href = 'preg_seg.html';
+                            }, 1000);
                         }
                     }
-                });
+
+                })
+            } else {
+                $("a[title='Continuar']").removeClass("btn__medium-blue");
+                $("a[title='Continuar']").addClass("btn__disabled");
             }
         }
         $("#password1").keyup(checkInputs);
