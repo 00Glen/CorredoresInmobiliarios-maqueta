@@ -278,7 +278,6 @@
                 $("a[title='Continuar']").removeClass("btn__disabled");
                 $("a[title='Continuar']").click(function(event) {
                     event.preventDefault();
-                    showWait();
 
                     if (fn.validatePassword($("#password1").val()) == 3) {
                         if ($("#password2").val() != $("#password1").val()) {
@@ -291,6 +290,7 @@
                             return;
                         } else {
                             //todo está bien
+                            showWait();
                             setTimeout(() => {
                                 window.location.href = 'preg_seg.html';
                             }, 1000);
