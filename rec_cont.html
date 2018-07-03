@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="form-group-info">
                                     <div class="isec">
-                                    	<img src="images/icons/warning-icon.png" alt="u38.png">
+                                        <img src="images/icons/warning-icon.png" alt="u38.png">
                                     </div>
                                     <div class="itextsec">El número de referencia consta de 13 digitos.</div>
                                 </div>
@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="form-group-info">
                                     <div class="isec">
-                                    	<img src="images/icons/warning-icon.png" alt="u38.png">
+                                        <img src="images/icons/warning-icon.png" alt="u38.png">
                                     </div>
                                     <div class="itextsec">Es la pregunta secreta que elegiste durante tu enrolamiento.</div>
                                 </div>
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="form-group-info">
                                     <div class="isec">
-                                    	<img src="images/icons/warning-icon.png" alt="u38.png">
+                                        <img src="images/icons/warning-icon.png" alt="u38.png">
                                     </div>
                                     <div class="itextsec">La respuesta debe tener mínimo 8 caracteres; no debe tener letras o números de forma ascendente o descendente; ni más de 2 números o letras iguales o consecutivas, a partir de 3 caracteres.</div>
                                 </div>
@@ -145,24 +145,33 @@
             </footer>
         </div>
     </div>
-    <div class="modal-message success outer" style="display: none">
+    <div class="waitmodal outer" style="display: none;" id="waitmodal">
         <div class="middle">
-            <div class="inner" style="display: none">
-                <div class="icon-area">
-                    <i class="bbva-icon bbva-icon_message"></i>
-                </div>
-                <p>
-                    <p class="tit"></p>
-                    <span class="message">Tu cambio de contraseña ha sido exitoso.</span>
-                </p>
-                <div class="btn-area">
-                    <a href="#" target="_blank" rel="noopener noreferrer" title="Aceptar" aria-label="Continuar" class="btn__basic btn__core-blue" itemprop="url">
-                        <span aria-hidden="true">Aceptar</span>
-                    </a>
+            <div class="inner">
+                <div class="spinner">
+                    <figure>
+                        <div class="stripe stripe--item-1"></div>
+                        <div class="stripe stripe--item-2">
+                            <div class="stripe stripe--item-3"></div>
+                        </div>
+                        <div class="stripe stripe--item-4">
+                            <div class="stripe stripe--item-5"></div>
+                        </div>
+                    </figure>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        //modal de espera
+        function showWait() {
+            document.getElementById("waitmodal").removeAttribute("style");
+        }
+
+        function hideWait() {
+            document.getElementById("waitmodal").style = "display: none;";
+        }
+    </script>
     <script src="./js/bbva.publish.js"></script>
     <script src="js/bundle.js"></script>
     <script>
@@ -202,6 +211,12 @@
             onSelectOption: checkInputs
         }
         loadComboSelect();
+    </script>
+    <script>
+        showWait();
+        setTimeout(() => {
+            hideWait();
+        }, 1000);
     </script>
 </body>
 
