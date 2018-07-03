@@ -1134,3 +1134,7 @@ ul.pagination > span.span-arrow{
     letter-spacing: 0;
     line-height: 24px;
 }
+
+tr td:nth-child(4){
+    text-align: right;
+}
