@@ -124,7 +124,7 @@
                                             </div>
                                         </div>
                                         <select hidden="" data-changed="false">
-											<option value="mes">Enero</option>
+											<option value="mes1">Enero</option>
 											<option value="mes2">Febrero</option>
 											<option value="mes3">Marzo</option>
 											<option value="mes3">Abril</option>
@@ -146,8 +146,19 @@
                                     <span id="errmsg" style="color:red; position: absolute;"></span>
                                 </div>
                                 <div id="estatus" style="display: none">
-                                    <div class="form-group">
-                                        <input class="form-control" name="inputestatus" id="inputestatus" maxlength="11" type="text" data-placeholder="Estatus" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off" style="background-color: #fff; width: 100%; max-width: 98%;">
+                                    <div class="form-group-select white" id="tfiltro">
+                                        <div class="option-select" data-selec-open="false" data-type="animated">
+                                            <div class="select-title sl">
+                                                <span class="option-text sl">Selecciona el estatus</span>
+                                                <span class="selected-option sl"></span>
+                                                <i class="bbva-icon bbva-icon__2_018_unfold sl"></i>
+                                            </div>
+                                        </div>
+                                        <select hidden="" data-changed="false">
+											<option value="proceso">En Proceso</option>
+											<option value="rechazado">Rechazado</option>
+											<option value="firmado">Firmado</option>
+										</select>
                                     </div>
                                 </div>
                             </div>
@@ -518,6 +529,7 @@
                     'pointer-events': 'auto',
                     'cursor': 'pointer'
                 });
+
                 $(".option-select ul li[data-i='mes']").click();
                 resetCombo($("#tfiltro"));
             });
