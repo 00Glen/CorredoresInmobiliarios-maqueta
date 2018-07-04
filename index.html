@@ -71,10 +71,10 @@
                             <form name="form" action="#" class="form-gray" method="post" target="_top" id="formarea">
                                 <br/>
                                 <div class="form-group">
-                                    <input class="form-control fixW95" name="TXusername" id="TXusername" maxlength="11" type="text" data-placeholder="Número de referencia" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off">
+                                    <input class="form-control fixW95" name="numref" id="numref" maxlength="11" type="text" data-placeholder="Número de referencia" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control fixW95" name="TXusername" id="TXusername" maxlength="11" type="text" data-placeholder="Usuario" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off">
+                                    <input class="form-control fixW95" name="username" id="username" maxlength="11" type="text" data-placeholder="Usuario" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off">
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control fixW95" name="password" type="password" id="password" maxlength="10" data-placeholder="Contraseña" required autocomplete="off">
@@ -84,7 +84,7 @@
                                         <a id="forgotpass" href="rec_cont.html">¿Olvidaste tu contrase&ntilde;a?</a>
                                     </div>
                                     <div class="submtbtn">
-                                        <a href="#" target="_blank" rel="noopener noreferrer" title="Continuar" aria-label="Continuar" class="btn__basic btn__medium-blue" itemprop="url">
+                                        <a href="#" target="_blank" rel="noopener noreferrer" title="Continuar" aria-label="Continuar" class="btn__basic btn__disabled" itemprop="url">
                                             <span aria-hidden="true">Continuar</span>
                                         </a>
                                     </div>
@@ -115,24 +115,26 @@
             </footer>
         </div>
     </div>
-    <div class="modal-success-message outer" style="display: none;">
-        <div class="middle">
-            <div class="inner" style="display: none;">
-                <i class="bbva-icon bbva-icon__2_025_error bigicon error"></i>
-                <p>
-                    <span class="message">NO HAY TAREAS DISPONIBLES</span>
-                </p>
-                <a href="#" target="_blank" rel="noopener noreferrer" title="Aceptar" aria-label="Continuar" class="btn__basic btn__medium-blue " itemprop="url">
-                    <span aria-hidden="true">Continuar</span>
-                </a>
-            </div>
-        </div>
-    </div>
     <script src="./js/bbva.publish.js"></script>
     <script src="js/bundle.js"></script>
     <script>
+        $("a.btn__disabled").click(function(event) {
+            event.preventDefault();
+        });
+
+        function checkInputs() {
+            if ($("#numref").val() != "" && $("#username").val() != "" && $("#password").val() != "") {
+                $("a[title='Continuar']").addClass("btn__medium-blue");
+                $("a[title='Continuar']").removeClass("btn__disabled");
+            } else {
+                $("a[title='Continuar']").addClass("btn__disabled");
+                $("a[title='Continuar']").removeClass("btn__medium-blue");
+            }
+        }
+        $("#numref, #username, #password").keyup(checkInputs);
         $("a[title='Continuar']").click(function(event) {
             event.preventDefault();
+            if ($(this).hasClass("btn__disabled")) return;
             window.location.href = 'gen_cont.html';
         })
     </script>
