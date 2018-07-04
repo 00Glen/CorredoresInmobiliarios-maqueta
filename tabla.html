@@ -115,7 +115,7 @@
                             </div>
                             <div class="col-6">
                                 <div id="mes">
-                                    <div class="form-group-select white" id="tfiltro">
+                                    <div class="form-group-select white" id="filtro-mes">
                                         <div class="option-select" data-selec-open="false" data-type="animated">
                                             <div class="select-title sl">
                                                 <span class="option-text sl">Selecciona el mes</span>
@@ -146,7 +146,7 @@
                                     <span id="errmsg" style="color:red; position: absolute;"></span>
                                 </div>
                                 <div id="estatus" style="display: none">
-                                    <div class="form-group-select white" id="tfiltro">
+                                    <div class="form-group-select white" id="filtro-estatus">
                                         <div class="option-select" data-selec-open="false" data-type="animated">
                                             <div class="select-title sl">
                                                 <span class="option-text sl">Selecciona el estatus</span>
@@ -168,7 +168,7 @@
                                         <i class="bbva-icon bbva-icon__3_020_trash"></i>
                                         <input type="reset" value="Restablecer campos" style="display:inline-block; font-family: BentonSansBBVA-Medium; font-size: 15px; color: #237ABA; letter-spacing: 0; line-height: 24px;     border: none; background-color: transparent; cursor:pointer;">
                                     </p>
-                                    <a href="#" target="_self" rel="noopener noreferrer" title="buscar" aria-label="buscar" class="btn__basic btn__medium-blue " itemprop="url" style="margin-left: 1rem;">
+                                    <a href="#" target="_self" rel="noopener noreferrer" title="buscar" aria-label="buscar" class="btn__basic btn__disabled" itemprop="url">
                                         <span aria-hidden="true">Buscar</span>
                                     </a>
                                 </div>
@@ -526,14 +526,11 @@
                 $("#mes").show();
                 $("#credito").hide();
                 $("#estatus").hide();
-                $("a[title='buscar']").removeClass('href-disabled');
-                $("a[title='buscar']").css({
-                    'pointer-events': 'auto',
-                    'cursor': 'pointer'
-                });
-
                 $(".option-select ul li[data-i='mes']").click();
-                resetCombo($("#tfiltro"));
+                resetCombo($("#filtro-estatus"));
+                resetCombo($("#filtro-mes"));
+                $("a[title='buscar']").removeClass("btn__medium-blue");
+                $("a[title='buscar']").addClass("btn__disabled");
             });
 
             $("input[name='numcredito']").keydown(function(event) {
@@ -543,17 +540,11 @@
                     return false;
                 }
                 if ($(this).val().length == 20) {
-                    $("a[title='buscar']").removeClass('href-disabled');
-                    $("a[title='buscar']").css({
-                        'pointer-events': 'auto',
-                        'cursor': 'pointer'
-                    });
+                    $("a[title='buscar']").addClass("btn__medium-blue");
+                    $("a[title='buscar']").removeClass("btn__disabled");
                 } else {
-                    $("a[title='buscar']").addClass('href-disabled');
-                    $("a[title='buscar']").css({
-                        'pointer-events': 'none',
-                        'cursor': 'not-allowed'
-                    });
+                    $("a[title='buscar']").addClass("btn__disabled");
+                    $("a[title='buscar']").removeClass("btn__medium-blue");
                 }
             });
 
@@ -593,12 +584,17 @@
             }
 
             $("a[title='buscar']").click(function(event) {
-                showWait();
-                setTimeout(() => {
-                    hideWait();
-                }, 3000);
+                if ($(this).hasClass('btn__disabled')) {
+                    event.preventDefault();
+                }else{
+                    showWait();
+                    setTimeout(() => {
+                        hideWait();
+                    }, 1000);
+                }
+                
             });
-
+            
             $("a[title='detalles']").click(function(event) {
                 showWait();
                 setTimeout(() => {
@@ -630,31 +626,22 @@
                             $("#mes").hide();
                             $("#credito").show();
                             $("#estatus").hide();
-                            $("a[title='buscar']").addClass('href-disabled');
-                            $("a[title='buscar']").css({
-                                'pointer-events': 'none',
-                                'cursor': 'not-allowed'
-                            });
+                            $("a[title='buscar']").removeClass("btn__medium-blue");
+                            $("a[title='buscar']").addClass("btn__disabled");
                             break;
                         case 'mes':
                             $("#mes").show();
                             $("#credito").hide();
                             $("#estatus").hide();
-                            $("a[title='buscar']").removeClass('href-disabled');
-                            $("a[title='buscar']").css({
-                                'pointer-events': 'auto',
-                                'cursor': 'pointer'
-                            });
+                            $("a[title='buscar']").removeClass("btn__medium-blue");
+                            $("a[title='buscar']").addClass("btn__disabled");
                             break;
                         case 'estatus':
                             $("#mes").hide();
                             $("#credito").hide();
                             $("#estatus").show();
-                            $("a[title='buscar']").removeClass('href-disabled');
-                            $("a[title='buscar']").css({
-                                'pointer-events': 'auto',
-                                'cursor': 'pointer'
-                            });
+                            $("a[title='buscar']").removeClass("btn__medium-blue");
+                            $("a[title='buscar']").addClass("btn__disabled");
                         default:
                             break;
                     }
