@@ -1135,6 +1135,18 @@ ul.pagination > span.span-arrow{
     line-height: 24px;
 }
 
+tr td:nth-child(3){
+    text-align: right;
+}
+
 tr td:nth-child(4){
     text-align: right;
+}
+
+tr th:nth-child(3){
+    text-align: right !important;
+}
+
+tr th:nth-child(4){
+    text-align: right !important;
 }

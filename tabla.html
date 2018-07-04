@@ -501,13 +501,16 @@
                     if (page >= 4) {
                         $("li.first").show();
                         $("li.prev").show();
-                    } else {
+                    }else {
                         $("li.first").hide();
                         $("li.prev").hide();
                     }
+                    if (page >= 23) {
+                        $("li.next").hide();
+                        $("li.last").hide();
+                    }  
                 }
             });
-            console.info(obj.data());
 
             $("a[title='filtrar']").click(function(event) {
                 $("#colapso").toggle('slow', 'linear', function() {
