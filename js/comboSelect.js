@@ -20,11 +20,11 @@ function hideOptions($option_Select) {
 }
 
 function resetCombo($parent_Select) {
-    $opSel = $parentSelect.find(".option-select");
+    $opSel = $parent_Select.find(".option-select");
     if ($opSel.attr("data-type") == "animated") {
         $opSel.find(".option-text").addClass("center");
     }
-    $opSelected = $opSel.find(".selected-option")
+    $opSelected = $opSel.find(".selected-option");
     $opSelected.text($opSelected.attr("data-text"));
     _$select = $parent_Select.find("select");
     _$select.attr("data-changed", "false");
@@ -84,13 +84,7 @@ function loadComboSelect() {
         _$select.attr("data-changed", "true");
         _$select.val($(this).attr("data-i"));
         $parent_Select.find(".option-text.center").removeClass("center");
-        $parent_Select.find(".selected-option").text($(this).text());;
+        $parent_Select.find(".selected-option").text($(this).text());
         comboConfig.onSelectOption($parent_Select);
-
-        if (getComboValue($("#filtro-mes")) || getComboValue($("#filtro-estatus"))) {
-            $("a[title='buscar']").removeClass("btn__disabled");
-            $("a[title='buscar']").addClass("btn__medium-blue");
-        }
     });
 }
-

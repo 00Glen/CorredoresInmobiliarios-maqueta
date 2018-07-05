@@ -501,14 +501,14 @@
                     if (page >= 4) {
                         $("li.first").show();
                         $("li.prev").show();
-                    }else {
+                    } else {
                         $("li.first").hide();
                         $("li.prev").hide();
                     }
                     if (page >= 23) {
                         $("li.next").hide();
                         $("li.last").hide();
-                    }  
+                    }
                 }
             });
 
@@ -526,9 +526,8 @@
                 $("#mes").show();
                 $("#credito").hide();
                 $("#estatus").hide();
-                $(".option-select ul li[data-i='mes']").click();
-                resetCombo($("#filtro-estatus"));
-                resetCombo($("#filtro-mes"));
+                $("#tfiltro .option-select ul li[data-i='mes']").click();
+                resetCombo($("#filtro-mes, #filtro-estatus"));
                 $("a[title='buscar']").removeClass("btn__medium-blue");
                 $("a[title='buscar']").addClass("btn__disabled");
             });
@@ -586,15 +585,15 @@
             $("a[title='buscar']").click(function(event) {
                 if ($(this).hasClass('btn__disabled')) {
                     event.preventDefault();
-                }else{
+                } else {
                     showWait();
                     setTimeout(() => {
                         hideWait();
                     }, 1000);
                 }
-                
+
             });
-            
+
             $("a[title='detalles']").click(function(event) {
                 showWait();
                 setTimeout(() => {
@@ -626,6 +625,8 @@
                             $("#mes").hide();
                             $("#credito").show();
                             $("#estatus").hide();
+                            resetCombo($("#filtro-mes, #filtro-estatus"));
+                            $("#numcredito").focus();
                             $("a[title='buscar']").removeClass("btn__medium-blue");
                             $("a[title='buscar']").addClass("btn__disabled");
                             break;
@@ -633,6 +634,8 @@
                             $("#mes").show();
                             $("#credito").hide();
                             $("#estatus").hide();
+                            resetCombo($("#filtro-estatus"));
+                            $("#numcredito").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
                             $("a[title='buscar']").addClass("btn__disabled");
                             break;
@@ -640,11 +643,17 @@
                             $("#mes").hide();
                             $("#credito").hide();
                             $("#estatus").show();
+                            resetCombo($("#filtro-mes"));
+                            $("#numcredito").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
                             $("a[title='buscar']").addClass("btn__disabled");
                         default:
                             break;
                     }
+                }
+                if ($parent_Select.attr("id") == "filtromes" || $parent_Select.attr("id") == "filtroestatus") {
+                    $("a[title='buscar']").removeClass("btn__disabled");
+                    $("a[title='buscar']").addClass("btn__medium-blue");
                 }
             }
         }
