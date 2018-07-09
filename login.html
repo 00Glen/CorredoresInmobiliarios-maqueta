@@ -70,14 +70,26 @@
                         <div class="">
                             <form name="form" action="#" class="form-gray" method="post" target="_top" id="formarea">
                                 <br/>
-                                <div class="form-group">
-                                    <input class="form-control fixW95" name="numref" id="numref" maxlength="11" type="text" data-placeholder="Número de referencia" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off">
+                                <div class="form-validation-group">
+                                    <div class="form-group">
+                                        <input class="form-control fixW95" name="numref" id="numref" maxlength="11" type="text" data-placeholder="Número de referencia" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control fixW95" name="username" id="username" maxlength="11" type="text" data-placeholder="Usuario" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off">
+                                <div class="form-validation-group">
+                                    <div class="form-group">
+                                        <input class="form-control fixW95" name="username" id="username" maxlength="11" type="text" data-placeholder="Usuario" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control fixW95" name="password" type="password" id="password" maxlength="10" data-placeholder="Contraseña" required autocomplete="off">
+                                <div class="form-validation-group">
+                                    <div class="form-group">
+                                        <input class="form-control fixW95" name="password" type="password" id="password" maxlength="10" data-placeholder="Contraseña" required autocomplete="off">
+                                    </div>
+                                    <div class="form-group-info">
+                                        <div class="isec">
+                                            <img class="bbva-icon" src="" alt="alert-icon" style="display: none; margin: auto;">
+                                        </div>
+                                        <div class="itextsec"></div>
+                                    </div>
                                 </div>
                                 <div class="actionsection">
                                     <div class="fpass">
@@ -118,25 +130,81 @@
     <script src="./js/bbva.publish.js"></script>
     <script src="js/bundle.js"></script>
     <script>
-        $("a.btn__disabled").click(function(event) {
-            event.preventDefault();
-        });
+        $(function(){
+            $("a.btn__disabled").click(function(event) {
+                event.preventDefault();
+            });
 
-        function checkInputs() {
-            if ($("#numref").val() != "" && $("#username").val() != "" && $("#password").val() != "") {
-                $("a[title='Continuar']").addClass("btn__medium-blue");
-                $("a[title='Continuar']").removeClass("btn__disabled");
-            } else {
-                $("a[title='Continuar']").addClass("btn__disabled");
-                $("a[title='Continuar']").removeClass("btn__medium-blue");
+            function checkInputs() {
+                if ($("#numref").val() != "" && $("#username").val() != "" && $("#password").val() != ""){
+                    $("a[title='Continuar']").addClass("btn__medium-blue");
+                    $("a[title='Continuar']").removeClass("btn__disabled");
+                } else {
+                    removeInputError($("input"), "keyup");
+                    $("a[title='Continuar']").addClass("btn__disabled");
+                    $("a[title='Continuar']").removeClass("btn__medium-blue");
+                    count = 0;
+                }
             }
-        }
-        $("#numref, #username, #password").keyup(checkInputs);
-        $("a[title='Continuar']").click(function(event) {
-            event.preventDefault();
-            if ($(this).hasClass("btn__disabled")) return;
-            window.location.href = 'tabla.html';
-        })
+            $("#numref, #username, #password").keyup(checkInputs);
+            var count = 0;
+            $("a[title='Continuar']").click(function(event) {
+                event.preventDefault();
+                if ($(this).hasClass("btn__disabled")) return;
+                var user = "PRUEBA";
+                var pass = "prueba";
+                if ($("#username").val() == user && $("#password").val() == pass) {
+                    window.location.href = 'gen_cont.html';
+                }else{
+                    count++;
+                    var mensaje = "Uno o más de los datos son incorrectos: ingrésalos de nuevo";
+                    if (count == 4) {
+                        mensaje = "Tienes 1 intento más para ingresar los datos de manera correcta. De lo contrario, tu cuenta quedará bloqueada.";
+                    }
+                    if (count >= 5) {
+                        mensaje = "Superaste el limite de intentos, contacta al administrador";
+                    }
+                    showInputError($("input"), mensaje, {
+                        "eventx": "keyup",
+                        "validation": function() {
+                            return $("#username").val() == user;
+                        }
+                    });
+                    return;
+                }
+            });
+            //error input
+            function removeInputError(error_iDom, errorEvent) {
+                e_in_parent = error_iDom.closest(".form-validation-group");
+                e_in_parent.removeClass("haserror");
+                e_i_text = e_in_parent.find(".itextsec");
+                e_i_text.text("");
+
+                e_icon_i = e_in_parent.find(".isec img.bbva-icon");
+                e_icon_i.css('display', 'none');
+                /*e_icon_i.attr("class", e_icon_i.attr("data-oldclasses"));*/
+
+                error_iDom.off(errorEvent, validateError);
+            }
+
+            function validateError(_vundoError, _iDom) {
+                if (_vundoError.validation()) {
+                    removeInputError(_iDom, _vundoError.event);
+                }
+            }
+            function showInputError(i_nputDOM, _textMessage, _undoError) {
+                in_parent = i_nputDOM.closest(".form-validation-group");
+                in_parent.addClass("haserror");
+                i_text = in_parent.find(".itextsec")
+                i_text.attr("data-oldtext", i_text.text());
+                i_text.text(_textMessage);
+                icon_i = in_parent.find(".isec img.bbva-icon");
+                /*icon_i.attr("data-oldclasses", icon_i.attr("class", ));*/
+                icon_i.show();
+                icon_i.attr("src", "images/icons/alert-icon.png");
+                i_nputDOM.on(_undoError.event, validateError(_undoError, i_nputDOM));
+            }  
+        });
     </script>
 </body>
 
