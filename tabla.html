@@ -21,6 +21,11 @@
     <link rel="stylesheet" href="./css/bbva.publish.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="js/jquery3.3.1.min.js"></script>
+    <style>
+        .placeholder-wrapper{
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage">
@@ -117,7 +122,9 @@
                             <div class="col-6">
                                 <div id="filterName">
                                     <div class="form-group" style="margin-bottom: 0;">
-                                        <input class="form-control" name="nombre" id="nombre" maxlength="20" pattern="[0-9]{20}" type="text" data-placeholder="Nombre" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off" style="background-color: #fff; width: 100%; max-width: 98%;">
+                                        <input class="form-control" name="nombre" id="nombre" maxlength="20" pattern="[0-9]{20}" type="text" data-placeholder="Nombre" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off" style="background-color: #fff; width: 100%; max-width: 100%;">
+                                        <input class="form-control" name="apaterno" id="apaterno" maxlength="20" pattern="[0-9]{20}" type="text" data-placeholder="Apellido Paterno" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off" style="background-color: #fff; width: 100%; max-width: 100%;">
+                                        <input class="form-control" name="amaterno" id="amaterno" maxlength="20" pattern="[0-9]{20}" type="text" data-placeholder="Apellido Materno" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off" style="background-color: #fff; width: 100%; max-width: 100%;">
                                     </div>
                                     <span class=errmsg" style="color:red; position: absolute;"></span>
                                 </div>
@@ -647,6 +654,8 @@
                             resetCombo($("#filtro-mes, #filtro-estatus"));
                             $("#numcredito").focus();
                             $("#nombre").val("");
+                            $("#apaterno").val("");
+                            $("#amaterno").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
                             $("a[title='buscar']").addClass("btn__disabled");
                             break;
@@ -658,6 +667,8 @@
                             resetCombo($("#filtro-estatus"));
                             $("#numcredito").val("");
                             $("#nombre").val("");
+                            $("#apaterno").val("");
+                            $("#amaterno").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
                             $("a[title='buscar']").addClass("btn__disabled");
                             break;
@@ -669,6 +680,8 @@
                             resetCombo($("#filtro-mes"));
                             $("#numcredito").val("");
                             $("#nombre").val("");
+                            $("#apaterno").val("");
+                            $("#amaterno").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
                             $("a[title='buscar']").addClass("btn__disabled");
                         default:
