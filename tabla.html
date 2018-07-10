@@ -80,15 +80,6 @@
                     </nav>
                 </div>
             </nav>
-            <div class="access__container" id="access__container__content" aria-hidden="true">
-                <div class="container">
-                    <div class="access__control">
-                        <button class="access__close" aria-label="cerrar" tabindex="-1"><i class="bbva-icon bbva-icon__2_022_close"></i></button>
-                    </div>
-                    <div class="access__content">
-                    </div>
-                </div>
-            </div>
         </header>
         <div class="jumbotron-bbva">
             <div style="-webkit-box-align: center!important; -ms-flex-align: center!important; align-items: center!important; display: -webkit-box!important; display: -ms-flexbox!important; display: flex!important; margin-left: 4rem;">
@@ -209,6 +200,9 @@
                                 </div>
                             </div>
                         </form>
+                    </div>
+                    <div id="sin-casos-fecha" style="padding-top: 30px; padding-bottom: 100px; display: none;">
+                        <p style="text-align: center; font-size: 20px;">No hay casos registrados para esta fecha.</p>
                     </div>
                     <table class="table table-striped" style="width: 100%; max-width: 100%; margin-bottom: 1rem; background-color: transparent;">
                         <thead>
@@ -522,9 +516,9 @@
     <script src="./js/bbva.publish.js"></script>
     <script src="js/bundle.js"></script>
     <script src="js/jquery.twbsPagination.js"></script>
-    <script type="text/javascript" charset="utf-8" async defer>
-        $(function() {
-            $("li.first").hide();
+    <script src="js/comboSelect.js"></script>
+    <script>
+        $("li.first").hide();
             $("li.prev").hide();
 
             var obj = $('#pagination').twbsPagination({
@@ -556,6 +550,17 @@
                 });
             });
 
+            var fnBuscar = function () {
+               if ($(this).hasClass('btn__disabled')) {
+                    event.preventDefault();
+                } else {
+                    showWait();
+                    setTimeout(() => {
+                        hideWait();
+                    }, 1000);
+                }
+            }
+
             $("input[type='reset']").click(function(event) {
                 $("#filterName").show();
                 $("#mes").hide();
@@ -565,6 +570,19 @@
                 resetCombo($("#filtro-mes, #filtro-estatus"));
                 $("a[title='buscar']").removeClass("btn__medium-blue");
                 $("a[title='buscar']").addClass("btn__disabled");
+                $("table").show();
+                $(".casos-paginacion").show();
+                $("#sin-casos-fecha").hide();
+                fnBuscar = function () {
+                   if ($(this).hasClass('btn__disabled')) {
+                        event.preventDefault();
+                    } else {
+                        showWait();
+                        setTimeout(() => {
+                            hideWait();
+                        }, 1000);
+                    }
+                }
             });
 
             $("input[name='numcredito']").keydown(function(event) {
@@ -585,7 +603,6 @@
             $("a[title='salir']").click(function() {
                 window.location.href = 'login.html';
             });
-
 
             function paginacion(num) {
                 var num = parseInt(num) || 1;
@@ -617,18 +634,6 @@
                 }
             }
 
-            $("a[title='buscar']").click(function(event) {
-                if ($(this).hasClass('btn__disabled')) {
-                    event.preventDefault();
-                } else {
-                    showWait();
-                    setTimeout(() => {
-                        hideWait();
-                    }, 1000);
-                }
-
-            });
-
             $("a[title='detalles']").click(function(event) {
                 showWait();
                 setTimeout(() => {
@@ -636,7 +641,130 @@
                 }, 1000);
             });
 
-        });
+            //configuración de combo
+        comboConfig = {
+            onSelectOption: function($parent_Select) {
+                if ($parent_Select.attr("id") == "tfiltro") {
+                    _optionSelected = $parent_Select.find("select").val();
+                    switch (_optionSelected) {
+                        case 'filterName':
+                            $("#filterName").show();
+                            $("#mes").hide();
+                            $("#credito").hide();
+                            $("#estatus").hide();
+                            resetCombo($("#filtro-mes, #filtro-estatus"));
+                            $("#nombre").focus();
+                            $("#numcredito").val("");
+                            $("a[title='buscar']").removeClass("btn__medium-blue");
+                            $("a[title='buscar']").addClass("btn__disabled");
+                            fnBuscar = function () {
+                               if ($(this).hasClass('btn__disabled')) {
+                                    event.preventDefault();
+                                } else {
+                                    showWait();
+                                    setTimeout(() => {
+                                        hideWait();
+                                    }, 1000);
+                                }
+                            };
+                            break;
+                        case 'credito':
+                            $("#mes").hide();
+                            $("#credito").show();
+                            $("#estatus").hide();
+                            $("#filterName").hide();
+                            resetCombo($("#filtro-mes, #filtro-estatus"));
+                            $("#numcredito").focus();
+                            $("#nombre").val("");
+                            $("#apaterno").val("");
+                            $("#amaterno").val("");
+                            $("a[title='buscar']").removeClass("btn__medium-blue");
+                            $("a[title='buscar']").addClass("btn__disabled");
+                            fnBuscar = function () {
+                               if ($(this).hasClass('btn__disabled')) {
+                                    event.preventDefault();
+                                } else {
+                                    showWait();
+                                    setTimeout(() => {
+                                        hideWait();
+                                    }, 1000);
+                                }
+                            };
+                            break;
+                        case 'mes':
+                            $("#mes").show();
+                            $("#mes").css('display', 'flex');
+                            $("#credito").hide();
+                            $("#estatus").hide();
+                            $("#filterName").hide();
+                            resetCombo($("#filtro-estatus"));
+                            $("#numcredito").val("");
+                            $("#nombre").val("");
+                            $("#apaterno").val("");
+                            $("#amaterno").val("");
+                            $("a[title='buscar']").removeClass("btn__medium-blue");
+                            $("a[title='buscar']").addClass("btn__disabled");
+                            fnBuscar = function () {
+                               if ($(this).hasClass('btn__disabled')) {
+                                    event.preventDefault();
+                                } else {
+                                    showWait();
+                                    setTimeout(() => {
+                                        hideWait();
+                                        $("table").hide();
+                                        $(".casos-paginacion").hide();
+                                        $("#sin-casos-fecha").show();
+                                    }, 1000);
+                                }
+                            };
+                            break;
+                        case 'estatus':
+                            $("#mes").hide();
+                            $("#credito").hide();
+                            $("#estatus").show();
+                            $("#filterName").hide();
+                            resetCombo($("#filtro-mes"));
+                            $("#numcredito").val("");
+                            $("#nombre").val("");
+                            $("#apaterno").val("");
+                            $("#amaterno").val("");
+                            $("a[title='buscar']").removeClass("btn__medium-blue");
+                            $("a[title='buscar']").addClass("btn__disabled");
+                            fnBuscar = function () {
+                               if ($(this).hasClass('btn__disabled')) {
+                                    event.preventDefault();
+                                } else {
+                                    showWait();
+                                    setTimeout(() => {
+                                        hideWait();
+                                    }, 1000);
+                                }
+                            };
+                            break;
+                        default:
+                            fnBuscar = function () {
+                               if ($(this).hasClass('btn__disabled')) {
+                                    event.preventDefault();
+                                } else {
+                                    showWait();
+                                    setTimeout(() => {
+                                        hideWait();
+                                    }, 1000);
+                                }
+                            }
+                        break;
+                    }
+                }
+                if ($parent_Select.attr("id") == "filtro-mes" || $parent_Select.attr("id") == "filtro-estatus") {
+                    $("a[title='buscar']").removeClass("btn__disabled");
+                    $("a[title='buscar']").addClass("btn__medium-blue");
+                }
+            }
+        }
+
+        $("a[title='buscar']").click(fnBuscar);
+
+        loadComboSelect();
     </script>
     <script>
         //modal de espera
@@ -653,7 +781,6 @@
                 $("a[title='buscar']").addClass("btn__medium-blue");
                 $("a[title='buscar']").removeClass("btn__disabled");
             } else {
-                removeInputError($("input"), "keyup");
                 $("a[title='buscar']").addClass("btn__disabled");
                 $("a[title='buscar']").removeClass("btn__medium-blue");
                 count = 0;
@@ -661,76 +788,7 @@
         }
 
         $("#nombre, #apaterno, #amaterno").keyup(checkInputs);
-    </script>
-    <script src="js/comboSelect.js"></script>
-    <script>
-        //configuración de combo
-        comboConfig = {
-            onSelectOption: function($parent_Select) {
-                if ($parent_Select.attr("id") == "tfiltro") {
-                    _optionSelected = $parent_Select.find("select").val();
-                    switch (_optionSelected) {
-                        case 'filterName':
-                            $("#filterName").show();
-                            $("#mes").hide();
-                            $("#credito").hide();
-                            $("#estatus").hide();
-                            resetCombo($("#filtro-mes, #filtro-estatus"));
-                            $("#nombre").focus();
-                            $("#numcredito").val("");
-                            $("a[title='buscar']").removeClass("btn__medium-blue");
-                            $("a[title='buscar']").addClass("btn__disabled");
-                            break;
-                        case 'credito':
-                            $("#mes").hide();
-                            $("#credito").show();
-                            $("#estatus").hide();
-                            $("#filterName").hide();
-                            resetCombo($("#filtro-mes, #filtro-estatus"));
-                            $("#numcredito").focus();
-                            $("#nombre").val("");
-                            $("#apaterno").val("");
-                            $("#amaterno").val("");
-                            $("a[title='buscar']").removeClass("btn__medium-blue");
-                            $("a[title='buscar']").addClass("btn__disabled");
-                            break;
-                        case 'mes':
-                            $("#mes").show();
-                            $("#mes").css('display', 'flex');
-                            $("#credito").hide();
-                            $("#estatus").hide();
-                            $("#filterName").hide();
-                            resetCombo($("#filtro-estatus"));
-                            $("#numcredito").val("");
-                            $("#nombre").val("");
-                            $("#apaterno").val("");
-                            $("#amaterno").val("");
-                            $("a[title='buscar']").removeClass("btn__medium-blue");
-                            $("a[title='buscar']").addClass("btn__disabled");
-                            break;
-                        case 'estatus':
-                            $("#mes").hide();
-                            $("#credito").hide();
-                            $("#estatus").show();
-                            $("#filterName").hide();
-                            resetCombo($("#filtro-mes"));
-                            $("#numcredito").val("");
-                            $("#nombre").val("");
-                            $("#apaterno").val("");
-                            $("#amaterno").val("");
-                            $("a[title='buscar']").removeClass("btn__medium-blue");
-                            $("a[title='buscar']").addClass("btn__disabled");
-                        default:
-                            break;
-                    }
-                }
-                if ($parent_Select.attr("id") == "filtro-mes" || $parent_Select.attr("id") == "filtro-estatus") {
-                    $("a[title='buscar']").removeClass("btn__disabled");
-                    $("a[title='buscar']").addClass("btn__medium-blue");
-                }
-            }
-        }
-        loadComboSelect();
+
     </script>
     <script>
         showWait();
