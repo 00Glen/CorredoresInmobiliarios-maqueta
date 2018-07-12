@@ -156,10 +156,14 @@
                                                 <i class="bbva-icon bbva-icon__2_018_unfold sl"></i>
                                             </div>
                                         </div>
-                                        <select hidden="" data-changed="false">
+                                        <select hidden="" data-changed="false" id="anios">
                                             <script>
+                                                var select = document.getElementById("anios");
                                                 for (var i = 2010; i <= 2018; i++) {
-                                                    document.write("<option value="+i+">"+i+"</option>");
+                                                    var option = document.createElement('option');
+                                                    option.value = i;
+                                                    option.innerHTML = i;    
+                                                    select.add(option);
                                                 }
                                             </script>
                                         </select>
@@ -550,17 +554,6 @@
                 });
             });
 
-            var fnBuscar = function () {
-               if ($(this).hasClass('btn__disabled')) {
-                    event.preventDefault();
-                } else {
-                    showWait();
-                    setTimeout(() => {
-                        hideWait();
-                    }, 1000);
-                }
-            }
-
             $("input[type='reset']").click(function(event) {
                 $("#filterName").show();
                 $("#mes").hide();
@@ -573,16 +566,6 @@
                 $("table").show();
                 $(".casos-paginacion").show();
                 $("#sin-casos-fecha").hide();
-                fnBuscar = function () {
-                   if ($(this).hasClass('btn__disabled')) {
-                        event.preventDefault();
-                    } else {
-                        showWait();
-                        setTimeout(() => {
-                            hideWait();
-                        }, 1000);
-                    }
-                }
             });
 
             $("input[name='numcredito']").keydown(function(event) {
@@ -657,16 +640,6 @@
                             $("#numcredito").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
                             $("a[title='buscar']").addClass("btn__disabled");
-                            fnBuscar = function () {
-                               if ($(this).hasClass('btn__disabled')) {
-                                    event.preventDefault();
-                                } else {
-                                    showWait();
-                                    setTimeout(() => {
-                                        hideWait();
-                                    }, 1000);
-                                }
-                            };
                             break;
                         case 'credito':
                             $("#mes").hide();
@@ -680,16 +653,6 @@
                             $("#amaterno").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
                             $("a[title='buscar']").addClass("btn__disabled");
-                            fnBuscar = function () {
-                               if ($(this).hasClass('btn__disabled')) {
-                                    event.preventDefault();
-                                } else {
-                                    showWait();
-                                    setTimeout(() => {
-                                        hideWait();
-                                    }, 1000);
-                                }
-                            };
                             break;
                         case 'mes':
                             $("#mes").show();
@@ -704,19 +667,6 @@
                             $("#amaterno").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
                             $("a[title='buscar']").addClass("btn__disabled");
-                            fnBuscar = function () {
-                               if ($(this).hasClass('btn__disabled')) {
-                                    event.preventDefault();
-                                } else {
-                                    showWait();
-                                    setTimeout(() => {
-                                        hideWait();
-                                        $("table").hide();
-                                        $(".casos-paginacion").hide();
-                                        $("#sin-casos-fecha").show();
-                                    }, 1000);
-                                }
-                            };
                             break;
                         case 'estatus':
                             $("#mes").hide();
@@ -730,29 +680,9 @@
                             $("#amaterno").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
                             $("a[title='buscar']").addClass("btn__disabled");
-                            fnBuscar = function () {
-                               if ($(this).hasClass('btn__disabled')) {
-                                    event.preventDefault();
-                                } else {
-                                    showWait();
-                                    setTimeout(() => {
-                                        hideWait();
-                                    }, 1000);
-                                }
-                            };
                             break;
                         default:
-                            fnBuscar = function () {
-                               if ($(this).hasClass('btn__disabled')) {
-                                    event.preventDefault();
-                                } else {
-                                    showWait();
-                                    setTimeout(() => {
-                                        hideWait();
-                                    }, 1000);
-                                }
-                            }
-                        break;
+                            break;
                     }
                 }
                 if ($parent_Select.attr("id") == "filtro-mes" || $parent_Select.attr("id") == "filtro-estatus") {
@@ -761,8 +691,28 @@
                 }
             }
         }
-
-        $("a[title='buscar']").click(fnBuscar);
+        var isVisible;
+        $("a[title='buscar']").click(function(event) {
+            if ($(this).hasClass('btn__disabled')) {
+                event.preventDefault();
+            }else{
+                isVisible = $("#mes").is(':visible');
+                if(isVisible === true){
+                    showWait();
+                    $("#sin-casos-fecha").show();
+                    $("table").hide();
+                    $(".casos-paginacion").hide();
+                    setTimeout(() => {
+                        hideWait();
+                    }, 1000);
+                }else{
+                    showWait();
+                    setTimeout(() => {
+                        hideWait();
+                    }, 1000);
+                }
+            }
+        });
 
         loadComboSelect();
     </script>
