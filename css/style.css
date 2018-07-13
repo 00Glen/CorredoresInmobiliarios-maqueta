@@ -16,6 +16,9 @@
     display: block;
 }
 
+.mx-auto {
+    margin: auto!important;
+}
 .mainNavigation__link.__appTitle::before {
     content: "\00a0 ";
     background-color: #ffffff;
@@ -350,6 +353,79 @@
 .inner {
     margin-left: auto;
     margin-right: auto;
+}
+
+.modal-message {
+    /*background: rgba(7, 33, 70, 0.84);*/
+    background: rgba(54, 54, 54, 0.85);
+    z-index: 10;
+}
+
+.modal-message .inner {
+    background: #ffffff;
+    box-shadow: 3px 3px 13px 6px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    text-align: center;
+}
+
+.modal-message .icon-area {
+    padding: 46px 0 12px 0;
+    color: #ffffff;
+}
+
+.modal-message.success .icon-area {
+    background: #86c82d;
+}
+
+.modal-message.error .icon-area {
+    background: #fff;
+}
+
+.modal-message.warning .icon-area {
+    background: #F6891E;
+}
+
+.modal-message.success .bbva-icon_message:before {
+    content: "\ea58";
+}
+
+.modal-message.error .bbva-icon_message:before {
+    content: "\ea59";
+}
+
+.modal-message.warning .bbva-icon_message:before {
+    content: "\eaa2";
+}
+
+.modal-message .icon-area i {
+    font-size: 47px;
+}
+
+.modal-message p {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.modal-message p.tit {
+    font-size: 18px;
+    font-family: "BentonSansBBVA-Bold", Helvetica, Arial, sans-serif;
+}
+
+.modal-message.success p.tit:before {
+    content: "Correcto!";
+}
+
+.modal-message.error p.tit:before {
+    content: "Error inesperado";
+}
+
+.modal-message.warning p.tit:before {
+    content: "Aviso!";
+}
+
+.modal-message .btn-area {
+    padding-bottom: 15px;
 }
 
 .waitmodal {
