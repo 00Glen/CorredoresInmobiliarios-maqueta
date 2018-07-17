@@ -21,16 +21,6 @@
     <link rel="stylesheet" href="./css/bbva.publish.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="js/jquery3.3.1.min.js"></script>
-    <style>
-        #filterName .form-group .placeholder-wrapper {
-            display: inline-block;
-            padding-left: 15px;
-            width: 33%;
-        }
-        #filterName .form-group .placeholder-wrapper:first-child {
-            padding-left: 5px;
-        }
-    </style>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage">
@@ -102,13 +92,12 @@
                                         <div class="option-select" data-selec-open="false">
                                             <div class="select-title sl">
                                                 <span class="option-text sl">Filtrar por:</span>
-                                                <span class="selected-option sl">Nombre</span>
+                                                <span class="selected-option sl">Fecha</span>
                                                 <i class="bbva-icon bbva-icon__2_018_unfold sl"></i>
                                             </div>
                                         </div>
                                         <select hidden="" data-changed="true">
-											<option value="filterName" selected>Nombre</option>
-                                            <option value="mes" selected>Fecha</option>
+                                            <option value="mes" selected>Mes</option>
 											<option value="credito">Número de Crédito</option>
 											<option value="estatus">Estatus</option>
 										</select>
@@ -116,16 +105,8 @@
                                 </div>
                             </div>
                             <div class="col-6" style="padding-left: 0; margin-left: 0;">
-                                <div id="filterName">
-                                    <div class="form-group" style="margin-bottom: 0;">
-                                        <input class="form-control" name="nombre" id="nombre" maxlength="20" pattern="[0-9]{20}" type="text" data-placeholder="Nombre" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off" style="background-color: #fff; width: 90%; max-width: 90%;">
-                                        <input class="form-control" name="apaterno" id="apaterno" maxlength="20" pattern="[0-9]{20}" type="text" data-placeholder="Apellido Paterno" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off" style="background-color: #fff; width: 90%; max-width: 90%;">
-                                        <input class="form-control" name="amaterno" id="amaterno" maxlength="20" pattern="[0-9]{20}" type="text" data-placeholder="Apellido Materno" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off" style="background-color: #fff; width: 100%; max-width: 100%;">
-                                    </div>
-                                    <span class=errmsg" style="color:red; position: absolute;"></span>
-                                </div>
-                                <div id="mes" style="display: none;">
-                                    <div class="form-group-select white" id="filtro-mes" style="width: 50%; display: inline-block; left: 5px; position: relative;">
+                                <div id="mes">
+                                    <div class="form-group-select white" id="filtro-mes" style="width: 100%; display: inline-block; left: 5px; position: relative;">
                                         <div class="option-select" data-selec-open="false" data-type="animated">
                                             <div class="select-title sl">
                                                 <span class="option-text sl">Selecciona el mes</span>
@@ -147,26 +128,6 @@
 											<option value="mes3">Noviembre</option>
 											<option value="mes3">Diciembre</option>
 										</select>
-                                    </div>
-                                    <div class="form-group-select white" id="filtro-mes" style="width: 49%; display: inline-block; left: 18px; position: relative;">
-                                        <div class="option-select" data-selec-open="false" data-type="animated">
-                                            <div class="select-title sl">
-                                                <span class="option-text sl">Selecciona el año</span>
-                                                <span class="selected-option sl"></span>
-                                                <i class="bbva-icon bbva-icon__2_018_unfold sl"></i>
-                                            </div>
-                                        </div>
-                                        <select hidden="" data-changed="false" id="anios">
-                                            <script>
-                                                var select = document.getElementById("anios");
-                                                for (var i = 2010; i <= 2018; i++) {
-                                                    var option = document.createElement('option');
-                                                    option.value = i;
-                                                    option.innerHTML = i;    
-                                                    select.add(option);
-                                                }
-                                            </script>
-                                        </select>
                                     </div>
                                 </div>
                                 <div id="credito" style="display: none">
@@ -555,11 +516,10 @@
             });
 
             $("input[type='reset']").click(function(event) {
-                $("#filterName").show();
-                $("#mes").hide();
+                $("#mes").show();
                 $("#credito").hide();
                 $("#estatus").hide();
-                $("#tfiltro .option-select ul li[data-i='filterName']").click();
+                $("#tfiltro .option-select ul li[data-i='mes']").click();
                 resetCombo($("#filtro-mes, #filtro-estatus"));
                 $("a[title='buscar']").removeClass("btn__medium-blue");
                 $("a[title='buscar']").addClass("btn__disabled");
@@ -630,25 +590,12 @@
                 if ($parent_Select.attr("id") == "tfiltro") {
                     _optionSelected = $parent_Select.find("select").val();
                     switch (_optionSelected) {
-                        case 'filterName':
-                            $("#filterName").show();
-                            $("#mes").hide();
-                            $("#credito").hide();
-                            $("#estatus").hide();
-                            resetCombo($("#filtro-mes, #filtro-estatus"));
-                            $("#nombre").focus();
-                            $("#numcredito").val("");
-                            $("a[title='buscar']").removeClass("btn__medium-blue");
-                            $("a[title='buscar']").addClass("btn__disabled");
-                            break;
                         case 'credito':
                             $("#mes").hide();
                             $("#credito").show();
                             $("#estatus").hide();
-                            $("#filterName").hide();
                             resetCombo($("#filtro-mes, #filtro-estatus"));
                             $("#numcredito").focus();
-                            $("#nombre").val("");
                             $("#apaterno").val("");
                             $("#amaterno").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
@@ -659,10 +606,8 @@
                             $("#mes").css('display', 'flex');
                             $("#credito").hide();
                             $("#estatus").hide();
-                            $("#filterName").hide();
                             resetCombo($("#filtro-estatus"));
                             $("#numcredito").val("");
-                            $("#nombre").val("");
                             $("#apaterno").val("");
                             $("#amaterno").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
@@ -672,10 +617,8 @@
                             $("#mes").hide();
                             $("#credito").hide();
                             $("#estatus").show();
-                            $("#filterName").hide();
                             resetCombo($("#filtro-mes"));
                             $("#numcredito").val("");
-                            $("#nombre").val("");
                             $("#apaterno").val("");
                             $("#amaterno").val("");
                             $("a[title='buscar']").removeClass("btn__medium-blue");
@@ -725,19 +668,6 @@
         function hideWait() {
             document.getElementById("waitmodal").style = "display: none;";
         }
-
-        function checkInputs() {
-            if ($("#nombre").val() != "" && $("#apaterno").val() != "" && $("#amaterno").val() != ""){
-                $("a[title='buscar']").addClass("btn__medium-blue");
-                $("a[title='buscar']").removeClass("btn__disabled");
-            } else {
-                $("a[title='buscar']").addClass("btn__disabled");
-                $("a[title='buscar']").removeClass("btn__medium-blue");
-                count = 0;
-            }
-        }
-
-        $("#nombre, #apaterno, #amaterno").keyup(checkInputs);
 
     </script>
     <script>
