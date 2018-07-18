@@ -2608,7 +2608,7 @@ a:hover .image__overlay {
 
 @media(min-width:992px) {
     .mainNavigation__link {
-        line-height: 88px;
+        line-height: 96px;
         -webkit-transition: line-height .16667s;
         transition: line-height .16667s
     }
@@ -3479,112 +3479,10 @@ a:hover .image__overlay {
     }
 }
 
-.header {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    position: relative;
-    position: relative;
-    zoom: 1;
-    width: 100%;
-    display: block
-}
-
-.header::before,
-.header::after {
-    content: '.';
-    display: block;
-    height: 0;
-    overflow: hidden
-}
-
-.header::after {
-    clear: both
-}
-
-.header ul {
-    list-style: none
-}
-
 .header__main,
 .header__campain {
-    min-height: 88px;
-    overflow: hidden
-}
-
-@media(min-width:0) and (max-width:991px) {
-    .header__main,
-    .header__campain {
-        color: #fff;
-        height: 48px;
-        min-height: 48px
-    }
-}
-
-.sticky .header__main,
-.sticky .header__campain {
-    -webkit-transition: max-height .16667s, min-height .16667s;
-    transition: max-height .16667s, min-height .16667s;
-    min-height: 48px;
-    max-height: 48px
-}
-
-.header__base {
-    position: relative;
-    width: 100%;
-    z-index: 10;
-    height: auto;
-    padding-top: 0;
-    padding-bottom: 0
-}
-
-.sticky .header__base {
-    background: #072146;
-    padding-bottom: 48px
-}
-
-@media(min-width:992px) {
-    .sticky .header__base {
-        padding-bottom: 88px
-    }
-}
-
-.header__container {
-    position: relative;
-    z-index: 2
-}
-
-@media(min-width:992px) {
-    .header__container.megamenu--open {
-        position: fixed;
-        width: 100%
-    }
-}
-
-.sticky .header__container {
-    position: fixed;
-    top: 0;
-    width: 100%
-}
-
-.sticky .header__container--noSticky {
-    position: relative
-}
-
-.header__logo {
-    padding: 0;
-    height: 88px;
+    min-height: 96px;
     overflow: hidden;
-    display: table;
-    padding-top: 6px;
-    max-width: 100%;
-    -webkit-transition: all .33333s;
-    transition: all .33333s
-}
-
-.sticky .header__logo {
-    height: 48px;
-    max-height: 48px;
-    min-height: 48px
 }
 
 @media(min-width:992px) {
@@ -8568,12 +8466,6 @@ a:hover .image__overlay {
     list-style: none
 }
 
-.header__main,
-.header__campain {
-    min-height: 88px;
-    overflow: hidden
-}
-
 @media(min-width:0) and (max-width:991px) {
     .header__main,
     .header__campain {
@@ -8635,10 +8527,9 @@ a:hover .image__overlay {
 
 .header__logo {
     padding: 0;
-    height: 88px;
+    height: 96px;
     overflow: hidden;
     display: table;
-    padding-top: 6px;
     max-width: 100%;
     -webkit-transition: all .33333s;
     transition: all .33333s
@@ -8652,7 +8543,7 @@ a:hover .image__overlay {
 
 @media(min-width:992px) {
     .sticky .header__logo {
-        width: 176px
+        width: auto;
     }
 }
 
@@ -8668,7 +8559,7 @@ a:hover .image__overlay {
         color: #fff;
         height: 48px;
         max-height: 48px;
-        min-height: 48px
+        min-height: 48px;
     }
 }
 

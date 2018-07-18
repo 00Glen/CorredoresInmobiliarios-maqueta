@@ -11,7 +11,7 @@
 .header__mainNavigation {
     width: auto !important;
     float: left;
-    margin-left: 310px;
+    margin-left: 285px;
     margin-right: -100%;
     display: block;
 }
@@ -22,8 +22,7 @@
 .mainNavigation__link.__appTitle::before {
     content: "\00a0 ";
     background-color: #ffffff;
-    height: 60%;
-    margin-top: 5%;
+    height: 32px;
     width: 2px;
     position: absolute;
     margin-left: -11px;
@@ -356,8 +355,7 @@
 }
 
 .modal-message {
-    /*background: rgba(7, 33, 70, 0.84);*/
-    background: rgba(54, 54, 54, 0.85);
+    background: rgba(0, 68, 129, 0.90);
     z-index: 10;
 }
 
@@ -442,7 +440,6 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    ;
 }
 
 .spinner([hidden]),
@@ -470,7 +467,6 @@ figure {
     height: 3em;
     width: 2.5em;
     position: relative;
-    ;
 }
 
 .stripe--item-1,
