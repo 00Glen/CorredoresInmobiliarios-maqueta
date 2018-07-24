@@ -11,7 +11,7 @@
 .header__mainNavigation {
     width: auto !important;
     float: left;
-    margin-left: 285px;
+    margin-left: 269px;
     margin-right: -100%;
     display: block;
 }
@@ -80,12 +80,10 @@
     padding: .5rem .75rem;
     font-size: .875rem;
     line-height: 1.25;
-    color: #464a4c;
     border-style: none none solid;
     border-image: initial;
     border-bottom: 1px solid #666;
     background: rgb(244, 244, 244);
-    color: rgb(18, 18, 18);
     background-clip: padding-box;
     border-radius: 0;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -791,7 +789,7 @@ figure {
 
 @media (min-width: 576px) {
     .jumbotron-bbva {
-        padding: 1rem 2rem;
+        padding: 1rem 3.2rem;
     }
 }
 
@@ -834,7 +832,6 @@ figure {
 
 .panel-bbva {
     margin-bottom: 20px;
-    background-color: #fff;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     background-color: #f5f5f5;
@@ -1107,7 +1104,6 @@ figure {
 }
 
 .img-text-over span{
-    font-size: 20px;
     font-family: BentonSansBBVA-Book;
     font-size: 22px;
     color: #FFFFFF;
@@ -1125,7 +1121,7 @@ div > .casos-paginacion {
 }
 
 .casos-paginacion > ul > li:not(:first-child):not(:nth-child(2)):not(:nth-last-child(2)):not(:last-of-type){
-    padding: 0rem 1rem 0rem 0rem;
+    padding: 0 1rem 0 0;
     display: inline-block;
 }
 .casos-paginacion ul.pagination li:not(:last-of-type):after{
@@ -1136,22 +1132,22 @@ div > .casos-paginacion {
 
 .casos-paginacion ul.pagination li:nth-last-child(2):after{
     content: '';
-    padding: 0rem;
+    padding: 0;
 }
 
 .casos-paginacion ul.pagination li:nth-last-child(3):after{
     content: '';
-    padding: 0rem;
+    padding: 0;
 }
 
 .casos-paginacion ul.pagination li:first-child:after{
     content: '';
-    padding: 0rem;
+    padding: 0;
 }
 
 .casos-paginacion ul.pagination li:nth-child(2):after{
     content: '';
-    padding: 0rem;
+    padding: 0;
 }
 
 a > img.arrow-right {
@@ -1173,7 +1169,7 @@ div > .casos-paginacion .pagination > ul > li > a{
 }
 
 ul.pagination > span.span-arrow{
-    padding: 0 0.5rem 0 0rem !important
+    padding: 0 0.5rem 0 0 !important
 }
 
 .icono-size-4 {
@@ -1197,7 +1193,6 @@ ul.pagination > span.span-arrow{
     float: left;
     padding: 0.1rem 4px;
     margin-left: -1px;
-    line-height: 1.42857143;
     text-decoration: none;
     background-color: #fff;
     font-family: BentonSansBBVA-Medium;

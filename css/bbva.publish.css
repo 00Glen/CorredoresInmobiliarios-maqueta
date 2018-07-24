@@ -405,7 +405,6 @@ iframe {
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
-        max-width: 100vw
     }
     .wrapper .container:after {
         content: " ";
@@ -800,9 +799,8 @@ iframe {
 
 @media(min-width:1200px) {
     .wrapper .container {
-        width: 1176px;
-        margin-left: auto;
-        margin-right: auto
+        margin-left: 48px;
+        margin-right: 48px;
     }
     .wrapper .container:after {
         content: " ";
@@ -3555,7 +3553,7 @@ a:hover .image__overlay {
     .header__logo {
         width: 262px;
         float: left;
-        margin-left: 16px;
+        margin-left: 0px;
         margin-right: -100%
     }
 }
@@ -3610,17 +3608,6 @@ a:hover .image__overlay {
     }
 }
 
-@media(min-width:1200px) {
-    .header__actions {
-        width: 556px;
-        float: left;
-        margin-left: 16px;
-        margin-right: 16px;
-        float: right;
-        float: right
-    }
-}
-
 @media(min-width:0) and (max-width:599px) {
     .header__actions--tablet-right {
         width: 18.18182%;
@@ -3645,9 +3632,13 @@ a:hover .image__overlay {
     }
 }
 
+.header__actions__ulist li:first-child {
+    margin-right: 58.8px;
+}
+
 @media(min-width:992px) {
     .header__actions__ulist {
-        float: right
+        float: right;
     }
 }
 
@@ -3687,11 +3678,8 @@ a:hover .image__overlay {
     color: #fff;
     text-align: center;
     letter-spacing: 0;
-    line-height: 16px;
-    color: #fff;
-    line-height: 48px;
     opacity: 1;
-    margin: 0 8px;
+    margin: 0;
     padding: 0;
     display: block
 }
@@ -8594,15 +8582,6 @@ a:hover .image__overlay {
     }
 }
 
-@media(min-width:1200px) {
-    .header__logo {
-        width: 262px;
-        float: left;
-        margin-left: 16px;
-        margin-right: -100%
-    }
-}
-
 @media(min-width:0) and (max-width:599px) {
     .header__campain .header__logo {
         float: none
@@ -8636,7 +8615,7 @@ a:hover .image__overlay {
 @media(min-width:600px) and (max-width:991px) {
     .header__actions {
         float: right;
-        padding-right: 16px
+        padding-right: 0;
     }
 }
 
@@ -8644,8 +8623,8 @@ a:hover .image__overlay {
     .header__actions {
         width: 448px;
         float: left;
-        margin-left: 16px;
-        margin-right: 16px;
+        margin-left: 0;
+        margin-right: 0;
         float: right
     }
     .header__campain .header__actions {
@@ -8658,10 +8637,9 @@ a:hover .image__overlay {
     .header__actions {
         width: 556px;
         float: left;
-        margin-left: 16px;
-        margin-right: 16px;
+        margin-left: 0px;
+        margin-right: 0px;
         float: right;
-        float: right
     }
 }
 
@@ -8689,11 +8667,6 @@ a:hover .image__overlay {
     }
 }
 
-@media(min-width:992px) {
-    .header__actions__ulist {
-        float: right
-    }
-}
 
 @media(min-width:992px) {
     .header__actions__list {
@@ -17598,8 +17571,8 @@ input[type='radio']:checked+label::before {
     }
 }
 
-.table {
-    margin: 32px 0
+.table thead tr:first-child th{
+    padding-top: 42px;
 }
 
 .table thead tr th {
@@ -17609,7 +17582,6 @@ input[type='radio']:checked+label::before {
     text-align: left;
     letter-spacing: 0;
     line-height: 20px;
-    padding-bottom: 24px
 }
 
 @media(min-width:600px) {
