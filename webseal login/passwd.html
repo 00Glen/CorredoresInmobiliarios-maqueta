@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no, user-scalable=no" />
+    <script src="/js/jquery3.3.1.min.js"></script>
+    <title>PKMS Administration: Change Password</title>
+    <!-- IMPORTANT: DON'T CHANGE THE TITLE -->
+    <meta name="description" content="project_name" />
+    <meta name="author" content="project_name" />
+    <link rel="stylesheet" href="/css/bbva.fonts.css">
+    <link rel="stylesheet" href="/css/bbva.publish.css">
+    <link rel="stylesheet" href="/css/bundleRecover.css">
+    <link rel="icon" type="image/png" href="/images/favicon/16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/images/favicon/96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/images/favicon/192x192.png" sizes="92x92" />
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon" />    
+    
+    <style>
+        .error-message {
+            margin: 4px;
+            background-color: #f9e7ef;
+            color: #c8175e;
+            border: 1px solid #ebcccc;
+            padding: 4px;
+            border-radius: 4px;
+            text-align: center;
+        }
+    </style>
+    <!-- ERROR: %ERROR% -->
+    <script>
+        var strError = "%ERROR%";
+    </script>
+</head>
+
+<body>
+    <div class="general-wrapper">
+        <header class="header__base wrapper">
+            <div class="cookies">
+            </div>
+            <a class="skip2content" tab-index="0" href="#main" aria-label="Ir al contenido principal">Ir al contenido principal</a>
+            <nav class="header__container background--navy" data-component="header" data-dl-component="" data-dl-component-name="header" data-dl-component-type="bbva/pwebs/components/par/header"
+                data-dl-component-id="content_bancomer_es_personas_productos_seguros_seguro-de-vida_jcr:content_header" data-component-id="09f2e30b-88e4-4ffb-8dab-7786f861557b">
+
+                <div class="header__main container">
+                    <div class="header__logo">
+                        <div class="header__logo__link">
+                            <img src="/images/logo/logo-bbva-bancomer-v1.svg" sizes="(min-width: 900px) 20vw, 50vw" class="header__image header__logo__link">
+                        </div>
+                    </div>
+                    <div class="header__mainNavigation">
+                        <nav class="mainNavigation__base" >
+                            <ul class="mainNavigation__list">
+                                <li class="mainNavigation__item mainNavigation__item--active">
+                                    <span class="mainNavigation__link __appTitle d-flex-bbva align-items-center-bbva">Corredores Inmobiliarios</span>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper">
+        </div>
+        <main class="bbva--main wrapper" id="main">
+            <section>
+                <div class="loginsec">
+                    <p class="text-center pb-5">%USERNAME%</p>
+                    <p class="error-message"></p>
+                    <p>Tu contraseña ha expirado, por favor ingresa una nueva contraseña</p>
+                    <form action="/pkmspasswd.form" class="form-gray" method="POST">
+                        <input type="HIDDEN" name="username" value="%USERNAME%">
+                        <div class="form-group iconizer">
+                            <input class="form-control fixW95" name="old" type="password" id="passwordold" data-placeholder="Contraseña Actual" required autocomplete="off">
+                            <i data-change="#passwordold" class="ivisualize bbva-icon bbva-icon__2_003_visualize"></i>
+                            </input>
+                        </div>
+                        <div class="form-group iconizer">
+                            <input class="form-control fixW95"  name="new1" type="password" id="password1" data-placeholder="Nueva contraseña" required autocomplete="off">
+                            <i data-change="#password1" class="ivisualize bbva-icon bbva-icon__2_003_visualize"></i>
+                            </input>
+                        </div>
+                        <div class="form-group-info">
+                            <div class="isec">
+                                <img src="/images/icons/warning-icon.png" alt="warning-icon">
+                            </div>
+                            <div class="itextsec">La contraseña debe tener mínimo 10 y máximo 15 caracteres, solo abecedario inglés, mínimo una mayuscula y un número; no debe tener caracteres especiales, espacio, letras o números de forma ascendente o descendente;
+                                ni más de 2 números o letras iguales o consecutivas, a partir de 3 caracteres.
+                            </div>
+                        </div>
+                        <div class="form-group-meter">
+                            <div class="meter-wrapper">
+                                <div class="meter-bar" id="meterbar" style="transform: skewX(-50deg) scaleX(0.0);"></div>
+                            </div>
+                            <div class="isec" style="float: right;">
+                                <img src="/images/icons/lock-icon-grey.png" alt="lock-icon-grey">
+                            </div>
+                            <p>Fortaleza de la contraseña</p>
+                        </div>
+                        <div class="form-validation-group">
+                            <div class="form-group iconizer">
+                                <input class="form-control fixW95" name="new2" id="password2" type="password" data-placeholder="Confirmar contraseña" required autocomplete="off">
+                                <i data-change="#password2" class="ivisualize bbva-icon bbva-icon__2_003_visualize"></i>
+                            </div>
+                            <div class="form-group-info">
+                                <div class="isec">
+                                    <img class="bbva-icon" src="" alt="alert-icon" style="display: none; margin: auto;">
+                                </div>
+                                <div class="itextsec"></div>
+                            </div>
+                        </div>
+                        <div class="actionsection">
+                            <div class="submtbtn">
+                                <a href="#" target="_blank" rel="noopener noreferrer" title="Continuar" aria-label="Continuar" class="btn__basic btn__disabled">
+                                    <span aria-hidden="true">Continuar</span>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <div class="bbva--footer wrapper">
+            <footer role="contentinfo" aria-label="Pie de página">
+                <div>
+                    <div>
+                        <div class="footer__base" data-dl-component="" data-dl-component-name="footer" data-dl-component-type="bbva/pwebs/components/par/footer" data-dl-component-id="content_bancomer_es_personas_productos_seguros_seguro-de-vida_jcr:content_footer">
+                            <div class="container">
+                                <session class="footer__container">
+                                    <div class="footer__logo__link">
+                                        <!-- title has to be given by the dialog -->
+                                        <img src="/images/logo/logo-bbva-bancomer-footer-negativo.svg" sizes="(min-width: 600px) 200px, 100vw" class="footer__logo " | Corredores Inmobiliarios">
+                                    </div>
+                                    <p class="footer__copyright">© 2018 BBVA Bancomer, S. A., Institución de Banca Múltiple, Grupo Financiero BBVA Bancomer.</p>
+                                </session>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <div class="waitmodal outer" style="display: none;" id="waitmodal">
+            <div class="middle">
+                <div class="inner">
+                    <div class="spinner">
+                        <figure>
+                            <div class="stripe stripe--item-1"></div>
+                            <div class="stripe stripe--item-2">
+                                <div class="stripe stripe--item-3"></div>
+                            </div>
+                            <div class="stripe stripe--item-4">
+                                <div class="stripe stripe--item-5"></div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/bbva.publish.js"></script>
+    <script src="/js/bundle.js"></script>
+    <script src="/js/bundlePwd.js"></script>
+    <script>
+        //icono mostrar contraseña
+        $("i.ivisualize").click(function() {
+            _this_i = $(this);
+            _$inp = $(_this_i.attr("data-change"));
+            if (_$inp.attr("type") == "password") {
+                _$inp.attr("type", "text");
+                _this_i.addClass("blue1");
+            } else {
+                _$inp.attr("type", "password");
+                _this_i.removeClass("blue1");
+            }
+        });
+    </script>
+    <script>
+        //modal de espera
+        function showWait() {
+            document.getElementById("waitmodal").removeAttribute("style");
+        }
+
+        function hideWait() {
+            document.getElementById("waitmodal").style = "display: none;";
+        }
+    </script>
+    <script>
+        //evitar copiar y pegar
+        $(document).keydown(function(event) {
+            if (event.ctrlKey == true && (event.which == '118' || event.which == '86' || event.which == '99' || event.which == '67')) {
+                event.preventDefault();
+            }
+        });
+        //evitar menú contextual
+        document.oncontextmenu = function(e) {
+            if (event.preventDefault != undefined)
+                event.preventDefault();
+            if (event.stopPropagation != undefined)
+                event.stopPropagation();
+        }
+    </script>
+    <script>
+        //error input
+        function removeInputError(error_iDom, errorEvent) {
+            e_in_parent = error_iDom.closest(".form-validation-group");
+            e_in_parent.removeClass("haserror");
+            e_i_text = e_in_parent.find(".itextsec");
+            e_i_text.text(e_i_text.attr("data-oldtext"));
+
+            e_icon_i = in_parent.find(".isec i.bbva-icon");
+            e_icon_i.attr("class", e_icon_i.attr("data-oldclasses"));
+
+            error_iDom.off(errorEvent, validateError);
+        }
+
+        function validateError(_vundoError, _iDom) {
+            if (_vundoError.validation()) {
+                removeInputError(_iDom, _vundoError.event);
+            }
+        }
+
+        function showInputError(i_nputDOM, _textMessage, _undoError) {
+            in_parent = i_nputDOM.closest(".form-validation-group");
+            in_parent.addClass("haserror");
+            i_text = in_parent.find(".itextsec")
+            i_text.attr("data-oldtext", i_text.text());
+            i_text.text(_textMessage);
+            icon_i = in_parent.find(".isec img.bbva-icon");
+            /*icon_i.attr("data-oldclasses", icon_i.attr("class", ));*/
+            icon_i.show();
+            icon_i.attr("src", "/images/icons/alert-icon.png");
+            i_nputDOM.on(_undoError.event, validateError(_undoError, i_nputDOM));
+        }
+    </script>
+    <script>
+        if (strError.trim() != "") {
+            if (strError.indexOf("HPDIA0201W") != -1) {
+                strError = "Información de autenticación no válida.";
+            }
+            $("p.error-message").text(strError);
+        } else {
+            $("p.error-message").remove();
+        }
+    </script>
+</body>
+
+</html>
