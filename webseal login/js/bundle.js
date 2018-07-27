@@ -4151,7 +4151,7 @@
                 }
             }), t.addEventListener("focus", function() {
                 e.setStyles({
-                    top: "0px"
+                    top: "11px"
                 })
             }), t.addEventListener("blur", function() {
                 0 === t.value.length ? (e.setStyles({

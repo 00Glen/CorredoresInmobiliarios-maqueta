@@ -34,7 +34,7 @@
 
 .loginsec {
     width: 450px;
-    margin-top: 15px;
+    margin-top: 40px;
     margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
@@ -71,13 +71,12 @@
     border: transparent;
     font-family: inherit;
     height: 44px;
-    padding: 1rem .75rem 0;
 }
 
 .form-control {
     display: block;
     width: 100%;
-    padding: .5rem .75rem;
+    padding: 1.5rem .75rem 0;
     font-size: .875rem;
     line-height: 1.25;
     border-style: none none solid;
@@ -1216,4 +1215,14 @@ tr th:nth-child(3){
 
 tr th:nth-child(4){
     text-align: right !important;
+}
+.fnt-size-22 {
+    font-size: 22px;
+}
+
+.pt-10 {
+    padding-top: 10px;
+}
+.pb-5 {
+    padding-bottom: 5px;
 }

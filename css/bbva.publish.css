@@ -1183,12 +1183,12 @@ h3,
 
 h4,
 .main-editorial-title {
-    font-family: "BentonSansBBVA-Bold", Helvetica, Arial, sans-serif;
-    font-size: 40px;
-    color: #fff;
-    text-align: left;
-    letter-spacing: -.5px;
-    line-height: 48px
+    font-family: BentonSansBBVA-Book;
+    font-size: 36px;
+    color: #121212;
+    letter-spacing: -0.2px;
+    text-align: center;
+    line-height: 48px;
 }
 
 .text-button {
