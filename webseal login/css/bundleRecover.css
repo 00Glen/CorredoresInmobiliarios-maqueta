@@ -78,14 +78,12 @@
     display: block;
     width: 100%;
     padding: 1.5rem .75rem 0;
-    font-size: .875rem;
+    font-size: 15px;
     line-height: 1.25;
-				   
     border-style: none none solid;
     border-image: initial;
     border-bottom: 1px solid #666;
-    background: rgb(244, 244, 244);
-						   
+    background: rgb(244, 244, 244);	   
     background-clip: padding-box;
     border-radius: 0;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -93,7 +91,7 @@
 
 .placeholder-wrapper .placeholder-simulator {
     color: #666;
-    font-size: 12px;
+    font-size: 15px;
     padding: 0 12px;
     position: absolute;
     top: 20px;
