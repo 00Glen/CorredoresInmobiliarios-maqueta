@@ -405,7 +405,6 @@ iframe {
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
-						
     }
     .wrapper .container:after {
         content: " ";
@@ -800,7 +799,6 @@ iframe {
 
 @media(min-width:1200px) {
     .wrapper .container {
-					  
         margin-left: 48px;
         margin-right: 48px;
     }
@@ -3610,17 +3608,6 @@ a:hover .image__overlay {
     }
 }
 
-						  
-					  
-					 
-					
-						  
-						   
-					 
-					
-	 
- 
-
 @media(min-width:0) and (max-width:599px) {
     .header__actions--tablet-right {
         width: 18.18182%;
@@ -3691,9 +3678,6 @@ a:hover .image__overlay {
     color: #fff;
     text-align: center;
     letter-spacing: 0;
-					  
-				
-					  
     opacity: 1;
     margin: 0;
     padding: 0;
@@ -8598,15 +8582,6 @@ a:hover .image__overlay {
     }
 }
 
-						  
-				   
-					 
-					
-						  
-						   
-	 
- 
-
 @media(min-width:0) and (max-width:599px) {
     .header__campain .header__logo {
         float: none
@@ -8665,7 +8640,6 @@ a:hover .image__overlay {
         margin-left: 0px;
         margin-right: 0px;
         float: right;
-					
     }
 }
 
@@ -8693,11 +8667,6 @@ a:hover .image__overlay {
     }
 }
 
-						 
-							 
-					
-	 
- 
 
 @media(min-width:992px) {
     .header__actions__list {
@@ -17613,7 +17582,6 @@ input[type='radio']:checked+label::before {
     text-align: left;
     letter-spacing: 0;
     line-height: 20px;
-						
 }
 
 @media(min-width:600px) {

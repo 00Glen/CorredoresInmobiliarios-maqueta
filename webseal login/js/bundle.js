@@ -4151,11 +4151,13 @@
                 }
             }), t.addEventListener("focus", function() {
                 e.setStyles({
-                    top: "11px"
+                    top: "5px",
+                    fontSize: "12px"
                 })
             }), t.addEventListener("blur", function() {
                 0 === t.value.length ? (e.setStyles({
-                    top: "18px"
+                    top: "16px",
+                    fontSize: "15px"
                 }), i.DOMUtils.removeClass(t, "noempty")) : (i.DOMUtils.removeClass(t, "has-error"), i.DOMUtils.addClass(t, "noempty"))
             }), 0 !== t.value.length && (i.DOMUtils.addClass(t, "noempty"), e.setStyles({
                 top: "0px"
