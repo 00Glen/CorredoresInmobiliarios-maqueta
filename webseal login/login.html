@@ -80,7 +80,6 @@
                             <form action="/pkmslogin.form" class="form-gray" method="post" target="_top" id="formarea">
                                 <input type="hidden" name="username" value="" />
                                 <input type="hidden" name="acceso" value="" />
-                                <br/>
                                 <div class="form-validation-group">
                                     <div class="form-group">
                                         <input class="form-control fixW95" name="TXaccess" id="TXaccess" maxlength="13" type="text" data-placeholder="Número de referencia" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off">
@@ -95,7 +94,7 @@
                                     <div class="form-group">
                                         <input class="form-control fixW95" name="password" type="password" id="password" maxlength="10" data-placeholder="Contraseña" required autocomplete="off">
                                     </div>
-                                    <div class="form-group-info">
+                                    <div class="form-group-info" style="display:none;">
                                         <div class="isec">
                                             <img class="bbva-icon" src="" alt="alert-icon" style="display: none; margin: auto;">
                                         </div>
@@ -119,7 +118,7 @@
                 </div>
             </section>
         </main>
-        <div class="bbva--footer wrapper footer-bbva-corredores">
+        <div class="bbva--footer wrapper">
             <footer role="contentinfo" aria-label="Pie de página">
                 <div>
                     <div>
@@ -207,6 +206,7 @@
                 var clave = document.forms[0].password.value;
                 
                 if(refer== "" || refer.length != 13){
+                    $(".form-validation-group .form-group-info").css('display','block');
                     strTextError = 'Please enter a Reference Number / Por favor, ingrese un n\u00FAmero de referencia';
                     showInputError($("input"), strTextError, {
                         "eventx": "click",
@@ -216,6 +216,7 @@
                     });
                 }
                 else if(usuario== ""  || usuario.length != 8){
+                    $(".form-validation-group .form-group-info").css('display','block');
                     strTextError = 'Please enter a username / Por favor, ingrese un nombre de usuario';
                     showInputError($("input"), strTextError, {
                         "eventx": "click",
@@ -225,6 +226,7 @@
                     });
                 }
                 else if(clave== "" || (clave.length != 8 && clave.length != 10)){
+                    $(".form-validation-group .form-group-info").css('display','block');
                     strTextError = 'Please enter a password / Por favor, ingrese una contrase\u00F1a';
                     showInputError($("input"), strTextError, {
                         "eventx": "click",

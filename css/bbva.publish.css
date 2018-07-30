@@ -188,6 +188,10 @@ body {
     hyphens: none
 }
 
+.bbva--footer.wrapper{
+    margin-top: 68px;
+}
+
 footer,
 .bbva--footer,
 header {
@@ -1183,12 +1187,10 @@ h3,
 
 h4,
 .main-editorial-title {
-    font-family: BentonSansBBVA-Book;
     font-size: 36px;
-    color: #121212;
     letter-spacing: -0.2px;
-    text-align: center;
     line-height: 48px;
+    margin-bottom: 24px;
 }
 
 .text-button {
@@ -8210,7 +8212,7 @@ a:hover .image__overlay {
     position: relative;
     zoom: 1;
     width: 100%;
-    display: block
+    display: block;
 }
 
 .footer::before,
@@ -8227,7 +8229,7 @@ a:hover .image__overlay {
 
 .footer__base {
     background-color: #072146;
-    padding: 24px 0
+    padding: 28px 0;
 }
 
 .footer__container {

@@ -93,6 +93,7 @@ function checkInputs() {
 
             if (fn.validatePassword($("#password1").val()) == 3) {
                 if ($("#password2").val() != $("#password1").val()) {
+                    $(".form-validation-group .form-group-info").css('display','block');
                     showInputError($("#password2"), "Las contraseñas no coinciden", {
                         "eventx": "keyup",
                         "validation": function() {

@@ -43,43 +43,46 @@
                     </div>
                 </div>
             </nav>
-        </header>       
+        </header>
         <main class="bbva--main wrapper" id="main">
             <section>
                 <div class="loginsec">
                     <div class="containerLogin">
-                        <h4>Pregunta de seguridad</h4>
+                        <h4>Recupera tu Contraseña</h4>
                         <div class="">
                             <form name="form" action="#" class="form-gray" method="post" target="_top" id="formarea">
+                                <div class="form-validation-group">
+                                    <div class="form-group">
+                                        <input class="form-control fixW95" name="TXusername" id="TXusername" maxlength="11" type="text" data-placeholder="Número de referencia" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off">
+                                    </div>
+                                </div>
                                 <div class="form-group-select" id="psecreta">
                                     <div class="option-select" data-selec-open="false" data-type="animated">
-                                        <div class="select-title sl">
-                                            <span class="option-text sl">Escoge una pregunta secreta</span>
-                                            <span class="selected-option sl">Opcion Selected</span>
-                                            <i class="bbva-icon bbva-icon__2_018_unfold sl"></i>
+                                        <div class="form-validation-group">
+                                            <div class="select-title sl">
+                                                <span class="option-text sl" style="color:#D44B50;">Escoge una pregunta secreta</span>
+                                                <span class="selected-option sl" style="color:black;"></span>
+                                                <i class="bbva-icon bbva-icon__2_018_unfold sl"></i>
+                                            </div>
                                         </div>
                                     </div>
                                     <select hidden="" data-changed="false">
                                         <option value="0">¿Cuál es el nombre de tu abuela?</option>
-                                        <option value="1">¿Cuál es el nombre de tu mascota?</option>
+                                        <option value="1">¿Cuál es el nombre de tu masota?</option>
                                         <option value="2">¿Cuál es tu equipo favorito?</option>
                                     </select>
                                 </div>
-                                <div class="form-group-info">
-                                    <div class="isec">
-                                        <img src="images/icons/warning-icon.png" alt="u38.png">
+                                <div class="form-validation-group">
+                                    <div class="form-group iconizer">
+                                        <input class="form-control fixW95" name="password" type="password" id="password2" data-placeholder="Respuesta" required autocomplete="off">
+                                        <i data-change="#password2" class="ivisualize bbva-icon bbva-icon__2_003_visualize"></i>
                                     </div>
-                                    <div class="itextsec">Si olvidas la contraseña, puedes recuperarla contestando a la pregunta</div>
-                                </div>
-                                <div class="form-group iconizer">
-                                    <input class="form-control fixW95" name="password" type="password" id="password2" data-placeholder="Respuesta Secreta" required autocomplete="off">
-                                    <i data-change="#password2" class="ivisualize bbva-icon bbva-icon__2_003_visualize"></i>
-                                </div>
-                                <div class="form-group-info">
-                                    <div class="isec">
-                                        <img src="images/icons/warning-icon.png" alt="u38.png">
+                                    <div class="form-group-info" style="display: none;">
+                                        <div class="isec">
+                                            <img class="bbva-icon" src="" alt="alert-icon" style="display: none; margin: auto;">
+                                        </div>
+                                        <div class="itextsec"></div>
                                     </div>
-                                    <div class="itextsec">La respuesta debe tener mínimo 8 caracteres; no debe tener letras o números de forma ascendente o descendente; ni más de 2 números o letras iguales o consecutivas, a partir de 3 caracteres.</div>
                                 </div>
                                 <div class="actionsection">
                                     <div class="fpass">
@@ -167,13 +170,58 @@
                 $("a[title='Continuar']").addClass("btn__medium-blue");
                 $("a[title='Continuar']").removeClass("btn__disabled");
                 $("a[title='Continuar']").click(function() {
-                    window.location.href = 'acc_aho.html';
+                    location.href = "gen_cont_2.html";
                 });
             }
         }
         $("#password2").keyup(checkInputs);
         $("a.btn__disabled").click(function(event) {
             event.preventDefault();
+        });
+        //error input
+        function removeInputError(error_iDom, errorEvent) {
+            e_in_parent = error_iDom.closest(".form-validation-group");
+            e_in_parent.removeClass("haserror");
+            e_i_text = e_in_parent.find(".itextsec");
+            e_i_text.text("");
+
+            e_icon_i = e_in_parent.find(".isec img.bbva-icon");
+            e_icon_i.css('display', 'none');
+            /*e_icon_i.attr("class", e_icon_i.attr("data-oldclasses"));*/
+
+            error_iDom.off(errorEvent, validateError);
+        }
+
+        function validateError(_vundoError, _iDom) {
+            if (_vundoError.validation()) {
+                removeInputError(_iDom, _vundoError.event);
+            }
+        }
+        function showInputError(i_nputDOM, _textMessage, _undoError) {
+            in_parent = i_nputDOM.closest(".form-validation-group");
+            in_parent.addClass("haserror");
+            i_text = in_parent.find(".itextsec")
+            i_text.attr("data-oldtext", i_text.text());
+            i_text.text(_textMessage);
+            icon_i = in_parent.find(".isec img.bbva-icon");
+            /*icon_i.attr("data-oldclasses", icon_i.attr("class", ));*/
+            icon_i.show();
+            icon_i.attr("src", "images/icons/alert-icon.png");
+            i_nputDOM.on(_undoError.event, validateError(_undoError, i_nputDOM));
+        }  
+        var mensaje = "Uno o más de los datos son incorrectos: ingrésalos de nuevo.";
+        $(".form-validation-group .form-group-info").css('display','block');
+        showInputError($("input"), mensaje, {
+            "eventx": "keyup",
+            "validation": function() {
+                return false;
+            }
+        });
+        showInputError($(".select-title"), mensaje, {
+            "eventx": "keyup",
+            "validation": function() {
+                return false;
+            }
         });
     </script>
     <script src="js/comboSelect.js"></script>

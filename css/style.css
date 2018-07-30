@@ -44,8 +44,8 @@
 .loginsec h3,
 .loginsec h4,
 .loginsec h5 {
-    font-family: "BentonSansBBVA-Light", Helvetica, Arial, sans-serif;
-    color: #000;
+    font-family: BentonSansBBVA-Book, Helvetica, Arial, sans-serif;
+    color: #121212;
     text-align: center;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 12px;
 }
 
 .form-control {
@@ -83,7 +83,7 @@
     border-style: none none solid;
     border-image: initial;
     border-bottom: 1px solid #666;
-    background: rgb(244, 244, 244);	   
+    background: rgb(244, 244, 244);    
     background-clip: padding-box;
     border-radius: 0;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -103,14 +103,15 @@
 }
 
 .actionsection {
-    height: 100px;
+    height: 56px;
+    margin-top: 33px;
 }
 
 .fpass {
     font-family: "BentonSansBBVA-Bold", Helvetica, Arial, sans-serif;
     width: 225px;
     float: left;
-    line-height: 52px;
+    line-height: 56px;
 }
 
 .submtbtn {
@@ -127,6 +128,7 @@
     top: 29%;
     z-index: 5;
     cursor: pointer;
+    margin-right: 16px;
 }
 
 .form-group.iconizer .bbva-icon:hover {
@@ -135,13 +137,14 @@
 
 .form-group-info {
     margin-bottom: 7px;
+    padding-left: 16px;
 }
 
 .form-group-info .isec {
     width: 5%;
     display: inline-block;
     vertical-align: top;
-    padding: 2px;
+    padding: 4px;
 }
 
 .form-group-meter .isec {
@@ -164,11 +167,17 @@
 }
 
 .form-group-info .itextsec {
-    width: 85%;
+    width: 90%;
     display: inline-block;
     text-align: justify;
     font-size: 12px;
+    margin-left: 2px;
+    line-height: 1.6;
+    font-family: BentonSansBBVA-Book;
+    color: #666666;
+    letter-spacing: 0;
 }
+
 
 .form-group-meter {
     margin-top: 5px;
@@ -222,12 +231,23 @@
     border-bottom: 1px solid #D44B50;
 }
 
+.form-validation-group.haserror .select-title {
+    background: #FCDFDF !important;
+    border-bottom: 1px solid #D44B50 !important;
+}
+
+.form-validation-group.haserror .select-title{
+    color: #D44B50;
+}
+
 .form-validation-group.haserror .placeholder-simulator {
     color: #D44B50;
 }
 
-
 /*DROP DOWN LIST*/
+.form-group-select{
+    margin-bottom: 8px;
+}
 
 .form-group-select ul {
     background: #F4F4F4;
@@ -1112,7 +1132,6 @@ figure {
 
 div > .casos-paginacion {
     text-align: center; 
-    padding-bottom: 2.5rem;
     padding-top: 1rem;
 }
 

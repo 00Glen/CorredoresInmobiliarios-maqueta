@@ -51,7 +51,6 @@
                         <h4>¡Bienvenido!</h4>
                         <div class="">
                             <form name="form" action="#" class="form-gray" method="post" target="_top" id="formarea">
-                                <br/>
                                 <div class="form-validation-group">
                                     <div class="form-group">
                                         <input class="form-control fixW95" name="numref" id="numref" maxlength="11" type="text" data-placeholder="Número de referencia" onkeyup="this.value=this.value.toUpperCase()" required autocomplete="off">
@@ -66,7 +65,7 @@
                                     <div class="form-group">
                                         <input class="form-control fixW95" name="password" type="password" id="password" maxlength="10" data-placeholder="Contraseña" required autocomplete="off">
                                     </div>
-                                    <div class="form-group-info">
+                                    <div class="form-group-info" style="display: none;">
                                         <div class="isec">
                                             <img class="bbva-icon" src="" alt="alert-icon" style="display: none; margin: auto;">
                                         </div>
@@ -89,7 +88,7 @@
                 </div>
             </section>
         </main>
-        <div class="bbva--footer wrapper footer-bbva-corredores">
+        <div class="bbva--footer wrapper">
             <footer>
                 <div>
                     <div>
@@ -146,6 +145,7 @@
                     if (count >= 5) {
                         mensaje = "Superaste el limite de intentos, contacta al administrador";
                     }
+                    $(".form-validation-group .form-group-info").css('display','block');
                     showInputError($("input"), mensaje, {
                         "eventx": "keyup",
                         "validation": function() {
@@ -186,7 +186,7 @@
                 icon_i.attr("src", "images/icons/alert-icon.png");
                 i_nputDOM.on(_undoError.event, validateError(_undoError, i_nputDOM));
             }  
-        })
+        });
     </script>
 </body>
 

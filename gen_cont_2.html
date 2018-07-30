@@ -51,7 +51,6 @@
                         <h4>Genera nueva contraseña</h4>
                         <div class="">
                             <form name="form" action="#" class="form-gray" method="post" target="_top" id="formarea">
-                                <br/>
                                 <div class="form-group iconizer">
                                     <input class="form-control fixW95" name="password" type="password" id="password1" data-placeholder="Nueva contraseña" required autocomplete="off">
                                     <i data-change="#password1" class="ivisualize bbva-icon bbva-icon__2_003_visualize"></i>
@@ -79,7 +78,7 @@
                                         <input class="form-control fixW95" name="password" type="password" id="password2" data-placeholder="Confirmar contraseña" required autocomplete="off">
                                         <i data-change="#password2" class="ivisualize bbva-icon bbva-icon__2_003_visualize"></i>
                                     </div>
-                                    <div class="form-group-info">
+                                    <div class="form-group-info" style="display: none;">
                                         <div class="isec">
                                             <img class="bbva-icon" src="" alt="alert-icon" style="display: none; margin: auto;">
                                         </div>
@@ -263,6 +262,7 @@
 
                     if (fn.validatePassword($("#password1").val()) == 3) {
                         if ($("#password2").val() != $("#password1").val()) {
+                            $(".form-validation-group .form-group-info").css('display','block');
                             showInputError($("#password2"), "Las contraseñas no coinciden", {
                                 "eventx": "keyup",
                                 "validation": function() {
