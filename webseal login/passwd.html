@@ -22,15 +22,14 @@
     <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon" />    
     
     <style>
-        .error-message {
-            margin: 4px;
-            background-color: #f9e7ef;
-            color: #c8175e;
-            border: 1px solid #ebcccc;
-            padding: 4px;
-            border-radius: 4px;
+/*        .error-message {
+            width: 448px;
+            height: 112px;
+            background-color: #FCDFDF;
+            color: #121212;
             text-align: center;
-        }
+            margin-bottom: 16px;
+        }*/
     </style>
     <!-- ERROR: %ERROR% -->
     <script>
@@ -71,12 +70,56 @@
             <section>
                 <div class="loginsec">
                     <!-- <p class="text-center pb-5">%USERNAME%</p> -->
-                    <p class="text-center pb-5"> MAURICIO SANCHEZ GARCIA</p>
-                    <p class="error-message"></p>
-                    <p>Tu contraseña ha expirado, por favor ingresa una nueva contraseña</p>
+                    <p class="text-center pb-5" style="
+                    font-family: BentonSansBBVA-Book;
+                    font-size: 36px;
+                    color: #000000;
+                    letter-spacing: -0.5px;
+                    text-align: center;
+                    line-height: 48px;
+                    margin-bottom: 40px;
+                    padding-bottom: 0px;
+                "> Actualiza tu contraseña</p>
+                <div style="width: 448px;height: 112px;background-color: #FCDFDF;color: #121212;margin-bottom: 16px;">
+                        <div class="isec" style="
+                        padding-left: 0px;
+                        padding-bottom: 0px;
+                        padding-right: 0px;
+                        padding-top: 0px;
+                        width: 18px;
+                        margin-top: 23px;
+                        margin-left: 23px;
+                        margin-bottom: 0px;
+                    ">
+                            <img src="images/icons/alert-icon.png" alt="alert-icon">
+                        </div>
+                        <div style="display: inline-block;">
+                            <p class="error-message" style="
+                            margin-left: 56px;
+                            width: 368px;
+                            height: 16px;
+                            font-family: BentonSansBBVA-Book;
+                            font-size: 15px;
+                            color: #121212;
+                            letter-spacing: 0;
+                            line-height: 16px;
+                        "></p>
+                        </div>
+                        <div class="itextsec" style="
+                        border-left-width: 56px;
+                        margin-left: 56px;
+                        width: 368px;
+                        font-family: BentonSansBBVA-Book;
+                        font-size: 13px;
+                        color: #666666;
+                        letter-spacing: 0;
+                        line-height: 20px;
+                        margin-top: 4px;
+                    ">Para continuar es necesario que generes una nueva contraseña.</div>
+                </div>
                     <form action="/pkmspasswd.form" class="form-gray" method="POST">
                         <input type="HIDDEN" name="username" value="%USERNAME%">
-                        <div class="form-group iconizer">
+                        <div class="form-group iconizer" >
                             <input class="form-control fixW95" name="old" type="password" id="passwordold" data-placeholder="Contraseña Actual" required autocomplete="off">
                             <i data-change="#passwordold" class="ivisualize bbva-icon bbva-icon__2_003_visualize"></i>
                             </input>
@@ -86,16 +129,31 @@
                             <i data-change="#password1" class="ivisualize bbva-icon bbva-icon__2_003_visualize"></i>
                             </input>
                         </div>
-                        <div class="form-group-info">
-                            <div class="isec">
+                        <div class="form-group-info" style="padding-left: 0px;width: 448px;">
+                            <div class="isec" style="
+                            padding-left: 0px;
+                            padding-top: 0px;
+                            padding-bottom: 0px;
+                            padding-right: 0px;
+                            width: 18px;
+                            margin-left: 17px;
+                        ">
                                 <img src="images/icons/warning-icon.png" alt="warning-icon">
                             </div>
-                            <div class="itextsec">La contraseña debe tener mínimo 10 y máximo 15 caracteres, solo abecedario inglés, mínimo una mayuscula y un número; no debe tener caracteres especiales, espacio, letras o números de forma ascendente o descendente;
-                                ni más de 2 números o letras iguales o consecutivas, a partir de 3 caracteres.
+                            <div class="itextsec" style="
+                            margin-left: 9px;
+                            width: 388px;
+                            height: 48px;
+                            font-family: BentonSansBBVA-Book;
+                            font-size: 12px;
+                            color: #121212;
+                            letter-spacing: 0;
+                            line-height: 16px;
+                        ">La contraseña debe tener mínimo 10 caracteres; no debe tener letras o números de forma ascendente o descendente; ni más de 2 números o letras iguales o consecutivas, a partir de 3 caracteres.
                             </div>
                         </div>
                         <div class="form-group-meter">
-                            <div class="meter-wrapper">
+                            <div class="meter-wrapper" style="height: 4px;margin-left: 0px; width: 416px;">
                                 <div class="meter-bar" id="meterbar" style="transform: skewX(-50deg) scaleX(0.0);"></div>
                             </div>
                             <div class="isec" style="float: right;">
@@ -112,12 +170,12 @@
                                 <div class="isec">
                                     <img class="bbva-icon" src="" alt="alert-icon" style="display: none; margin: auto;">
                                 </div>
-                                <div class="itextsec"></div>
+                                <div class="itextsec" ></div>
                             </div>
                         </div>
                         <div class="actionsection">
                             <div class="submtbtn">
-                                <a href="#" target="_blank" rel="noopener noreferrer" title="Continuar" aria-label="Continuar" class="btn__basic btn__disabled">
+                                <a href="#" target="_blank" rel="noopener noreferrer" title="Continuar" aria-label="Continuar" class="btn__basic btn__disabled" style="width: 136px;">
                                     <span aria-hidden="true">Continuar</span>
                                 </a>
                             </div>
@@ -244,7 +302,8 @@
                 strError = "Información de autenticación no válida.";
             }
             // $("p.error-message").text(strError);
-            $("p.error-message").text("Información de autenticación no válida.");
+            $("p.error-message").text("Datos de autenticación no válidos");
+            
         } else {
             $("p.error-message").remove();
         }
