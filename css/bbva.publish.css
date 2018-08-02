@@ -803,8 +803,9 @@ iframe {
 
 @media(min-width:1200px) {
     .wrapper .container {
-        margin-left: 48px;
-        margin-right: 48px;
+        width: 960px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .wrapper .container:after {
         content: " ";
