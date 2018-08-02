@@ -22,7 +22,7 @@
     <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon" />    
     
     <style>
-        .error-message {
+        /* .error-message {
             margin: 4px;
             background-color: #f9e7ef;
             color: #c8175e;
@@ -30,7 +30,7 @@
             padding: 4px;
             border-radius: 4px;
             text-align: center;
-        }
+        } */
     </style>
     <!-- ERROR: %ERROR% -->
     <script>
@@ -71,9 +71,19 @@
             <section>
                 <div class="loginsec">
                     <!-- <p class="text-center pb-5">%USERNAME%</p> -->
-                    <p class="text-center pb-5"> MAURICIO SANCHEZ GARCIA</p>
-                    <p class="error-message"></p>
-                    <p>Tu contraseña ha expirado, por favor ingresa una nueva contraseña</p>
+                    <!-- <p class="text-center pb-5"> MAURICIO SANCHEZ GARCIA</p> -->
+                    <h4>Actualiza tu contraseña</h4>
+                    <div class="panel-bbva panel-default-bbva" style="background-color: #FCDFDF;">
+                        <div class="panel-body-bbva" style="padding: 23px 0;">
+                            <div class="">
+                                <div class="align-items-center-bbva img-u31">
+                                </div>
+                                <span style="font-family: BentonSansBBVA-Book; font-size: 15px; color: #121212; letter-spacing: 0; line-height: 16px;"><img src="images/icons/alert-icon.png" alt="" style="display: inline-flex; padding-right:  18px; margin-left: 23px; width: auto;">Datos de autenticación no válidos <p class="error-message" style="font-family: BentonSansBBVA-Book; font-size: 13px; color: #666666; letter-spacing: 0; line-height: 20px; margin-right: 40px; margin-left: 56px;"></p></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <p>Tu contraseña ha expirado, por favor ingresa una nueva contraseña</p> -->
                     <form action="/pkmspasswd.form" class="form-gray" method="POST">
                         <input type="HIDDEN" name="username" value="%USERNAME%">
                         <div class="form-group iconizer">
@@ -244,7 +254,7 @@
                 strError = "Información de autenticación no válida.";
             }
             // $("p.error-message").text(strError);
-            $("p.error-message").text("Información de autenticación no válida.");
+            $("p.error-message").text("Para continuar es necesario que generes una nueva contraseña.");
         } else {
             $("p.error-message").remove();
         }
