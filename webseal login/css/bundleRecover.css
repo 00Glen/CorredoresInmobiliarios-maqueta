@@ -783,7 +783,7 @@ figure {
 /*END SPINNER*/
 
 .jumbotron__image {
-    width: 8%;
+    width: auto;
     display: inline;
 }
 
