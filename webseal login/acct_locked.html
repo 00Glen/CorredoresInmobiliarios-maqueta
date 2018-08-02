@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!-- Copyright (C) 2000 Tivoli Systems, Inc. -->
+<!-- Copyright (C) 1999 IBM Corporation -->
+<!-- Copyright (C) 1998 Dascom, Inc. -->
+<!-- All Rights Reserved. -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE></TITLE>
+    <link rel="stylesheet" type="text/css" href="/css/bundleRecover.css">
+    <style>
+        #errormessage {
+            margin: 4px;
+            color: #c8175e;
+            padding: 4px;
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function redirectToForgotMyPassword() {
+            var servOrigin = window.location.origin;
+            if (servOrigin.indexOf("150.250.238.172") != -1) { //Desarrollo
+                window.location = servOrigin + "/mgbfpub_des_mx_web/mgbf_mult_web_fundacionbancomerextranetwebfront_01/fundacionbancomerextranetwebfront/recoverpassword/index.jsp";
+            } else if (servOrigin.indexOf("150.250.238.173") != -1) { //Test
+                window.location = servOrigin + "/mgbfpub_test_mx_web/mgbf_mult_web_fundacionbancomerextranetwebfront_01/fundacionbancomerextranetwebfront/recoverpassword/index.jsp";
+            } else if (servOrigin.indexOf("calplataformabecas.fundacionbbvabancomer.com.mx") != -1) { //calidad
+                window.location = servOrigin + "/mgbfpub_qa_mx_web/mgbf_mult_web_fundacionbancomerextranetwebfront_01/fundacionbancomerextranetwebfront/recoverpassword/index.jsp";
+            } else if (servOrigin.indexOf("plataformabecaslo.fundacionbbvabancomer.org") != -1) { //liga oculta
+                window.location = servOrigin + "/mgbfpub_lo_mx_web/mgbf_mult_web_fundacionbancomerextranetwebfront_01/fundacionbancomerextranetwebfront/recoverpassword/index.jsp";
+            } else if (servOrigin.indexOf("plataformabecas.fundacionbbvabancomer.org") != -1) { //Prod
+                window.location = servOrigin + "/mgbfpub_pr_mx_web/mgbf_mult_web_fundacionbancomerextranetwebfront_01/fundacionbancomerextranetwebfront/recoverpassword/index.jsp";
+            }
+        }
+
+        function redirectToLogin() {
+            var servOrigin = window.location.origin;
+            if (servOrigin.indexOf("localhost") != -1) { //local
+                return;
+            } else if (servOrigin.indexOf("150.250.238.172") != -1) { //Desarrollo
+                window.location = servOrigin + "/mgbfprv_des_mx_web/mgbf_mult_web_fundacionbancomerextranetwebfront_01/";
+            } else if (servOrigin.indexOf("150.250.238.173") != -1) { //Test
+                window.location = servOrigin + "/mgbfprv_test_mx_web/mgbf_mult_web_fundacionbancomerextranetwebfront_01/";
+            } else if (servOrigin.indexOf("calplataformabecas.fundacionbbvabancomer.com.mx") != -1) { //Calidad
+                window.location = servOrigin + "/mgbfprv_qa_mx_web/mgbf_mult_web_fundacionbancomerextranetwebfront_01/";
+            } else if (servOrigin.indexOf("plataformabecaslo.fundacionbbvabancomer.org") != -1) { //liga oculta
+                window.location = servOrigin + "/mgbfprv_lo_mx_web/mgbf_mult_web_fundacionbancomerextranetwebfront_01/";
+            } else if (servOrigin.indexOf("plataformabecas.fundacionbbvabancomer.org") != -1) { //Prod
+                window.location = servOrigin + "/mgbfprv_pr_mx_web/mgbf_mult_web_fundacionbancomerextranetwebfront_01/";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="page-layout-cover login">
+        <main class="container columns">
+            <div class="column sidebar">
+            </div>
+            <div class="column main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="outer">
+                                <div class="middle">
+                                    <div class="inner col-sm-12 col-md-6" style="width: auto;">
+                                        <form action="#" class="form-gray" method="POST">
+                                            <div id="errormessage"></div>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <button class="btn btn-primary col-sm-12" type="button" id="btnback">Regresar</button>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button class="btn btn-secondary col-sm-12" type="button" id="btnrecover">Desbloquear mi usuario</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    </div>
+    <script>
+        var strerror = "%ERROR%";
+        if (strerror.indexOf("HPDIA0306W") != -1) {
+            strerror = "Esta cuenta ha sido bloqueada temporalmente debido a demasiados intentos de inicio de sesión fallidos.";
+        }
+        document.getElementById("errormessage").innerText = strerror;
+        document.getElementById("btnback").addEventListener("click", redirectToLogin);
+        document.getElementById("btnrecover").addEventListener("click", redirectToForgotMyPassword);
+    </script>
+</body>
+
+</html>
