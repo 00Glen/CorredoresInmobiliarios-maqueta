@@ -6,19 +6,39 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <TITLE></TITLE>
-    <link rel="stylesheet" type="text/css" href="/css/bundleRecover.css">
+    <title>Corredores Inmobiliarios</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="lang" content="es-MX">
+    <meta name="resource-type" content="document">
+    <meta name="global" content="distribution">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="BBVA">
+    <link rel="icon" type="image/png" href="images/favicon/16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="images/favicon/96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="images/favicon/192x192.png" sizes="92x92" />
+    <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/bbva.fonts.css">
+    <link rel="stylesheet" href="css/bbva.publish.css">
+    <link rel="stylesheet" href="css/bundleRecover.css">
+    <script src="js/jquery3.3.1.min.js"></script>
+    <script>
+        document.oncontextmenu = new Function("return false");
+        var strError="%ERROR%";
+        var strCode = "";
+        var strTextError = "";
+    </script>
     <style>
-        #errormessage {
-            margin: 4px;
-            color: #c8175e;
-            padding: 4px;
-            text-align: center;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-    </style>
+            #errormessage {
+                margin: 4px;
+                color: #c8175e;
+                padding: 4px;
+                text-align: center;
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+        </style>
     <script>
         function redirectToForgotMyPassword() {
             var servOrigin = window.location.origin;
@@ -34,7 +54,6 @@
                 window.location = servOrigin + "/mgbfpub_pr_mx_web/mgbf_mult_web_fundacionbancomerextranetwebfront_01/fundacionbancomerextranetwebfront/recoverpassword/index.jsp";
             }
         }
-
         function redirectToLogin() {
             var servOrigin = window.location.origin;
             if (servOrigin.indexOf("localhost") != -1) { //local
@@ -53,52 +72,94 @@
         }
     </script>
 </head>
-
 <body>
-    <div class="page-layout-cover login">
-        <main class="container columns">
-            <div class="column sidebar">
-            </div>
-            <div class="column main">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="outer">
-                                <div class="middle">
-                                    <div class="inner col-sm-12 col-md-6" style="width: auto;">
-                                        <form action="#" class="form-gray" method="POST">
-                                            <div id="errormessage"></div>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <button class="btn btn-primary col-sm-12" type="button" id="btnback">Regresar</button>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <button class="btn btn-secondary col-sm-12" type="button" id="btnrecover">Desbloquear mi usuario</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
+    <div class="general-wrapper">
+        <header class="header__base wrapper">
+            <nav class="header__container background--navy" data-component="header">
+                <div class="header__main container" style="align-items: baseline; display: flex;">
+                    <div class="header__wrapper">
+                        <div class="header__logo">
+                            <div class="header__logo__link">
+                                <img src="images/logo/logo-bbva-bancomer-v1.svg"  class="header__image header__logo__link">
+                            </div>
+                        </div>
+                        <div class="header__mainNavigation" >
+                            <nav class="mainNavigation__base" >
+                                <ul class="mainNavigation__list">
+                                    <li class="mainNavigation__item mainNavigation__item--active">
+                                        <span class="mainNavigation__link __appTitle d-flex-bbva align-items-center-bbva">Corredores Inmobiliarios</span>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="bbva--main wrapper" id="main">
+            <section>
+                <div class="loginsec" style="width: 528px;margin-top: 100px;">
+                    <form action="#" class="form-gray" method="POST">
+                        <div class="containerLogin">
+                            <div class="panel-bbva panel-default-bbva" style="background-color: #FCDFDF;">
+                                <div class="panel-body-bbva" style="padding: 23px 0;">
+                                    <div class="">
+                                        <div class="align-items-center-bbva img-u31">
+                                        </div>
+                                        <span style="font-family: BentonSansBBVA-Book; font-size: 15px; color: #121212; letter-spacing: 0; line-height: 16px;">
+                                            <img src="images/icons/alert-icon.png" alt="" style="display: inline-flex; padding-right:  18px; margin-left: 23px; width: auto;">
+                                            <div id="errormessage" style="display: inline-flex;"></div>
+                                        </span>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="submtbtn" style="float:  right;">
+                                <a href="#" target="_blank"  title="Desbloquear" aria-label="Desbloquear" class="btn__basic" id="btnrecover" style="width: 175px;">
+                                    <span aria-hidden="true">Desbloquear mi usuario</span>
+                                </a>
+                            </div>
+                            <div class="submtbtn" style="float:  left;">
+                                <a href="#" target="_blank"  title="Regresar" aria-label="Regresar" class="btn__basic" id="btnback" style="width: 175px;">
+                                    <span aria-hidden="true">Regresar</span>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <div class="bbva--footer wrapper">
+            <footer role="contentinfo" aria-label="Pie de página">
+                <div>
+                    <div>
+                        <div class="footer__base" data-dl-component="" data-dl-component-name="footer" data-dl-component-type="bbva/pwebs/components/par/footer" data-dl-component-id="content_bancomer_es_personas_productos_seguros_seguro-de-vida_jcr:content_footer" style="position:  fixed;bottom:  0; width:  100%;">
+                            <div class="container">
+                                <session class="footer__container">
+                                    <div class="footer__logo__link">
+                                        <!-- title has to be given by the dialog -->
+                                        <img src="images/logo/logo-bbva-bancomer-footer-negativo.svg" class="footer__logo">
+                                    </div>
+                                    <p class="footer__copyright" itemprop="name">© 2018 BBVA Bancomer, S. A., Institución de Banca Múltiple, Grupo Financiero BBVA Bancomer.</p>
+                                </session>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </footer>
+        </div>
     </div>
-
-    </div>
+    <script src="js/bbva.publish.js"></script>
+    <script src="js/bundle.js"></script>
     <script>
-        var strerror = "%ERROR%";
-        if (strerror.indexOf("HPDIA0306W") != -1) {
-            strerror = "Esta cuenta ha sido bloqueada temporalmente debido a demasiados intentos de inicio de sesión fallidos.";
-        }
-        document.getElementById("errormessage").innerText = strerror;
-        document.getElementById("btnback").addEventListener("click", redirectToLogin);
-        document.getElementById("btnrecover").addEventListener("click", redirectToForgotMyPassword);
-    </script>
+            var strerror = "%ERROR%";
+            if (strerror.indexOf("HPDIA0306W") != -1) {
+                strerror = "Esta cuenta ha sido bloqueada temporalmente debido a demasiados intentos de inicio de sesión fallidos.";
+            }
+            document.getElementById("errormessage").innerText = strerror;
+            document.getElementById("btnback").addEventListener("click", redirectToLogin);
+            document.getElementById("btnrecover").addEventListener("click", redirectToForgotMyPassword);
+        </script>
 </body>
 
 </html>
