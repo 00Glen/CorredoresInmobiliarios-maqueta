@@ -12031,7 +12031,7 @@ input[type='radio']:checked+label::before {
 @media(min-width:600px) {
     .stepsmodule--col4 .stepsmodule__tablist {
         float: none;
-        width: 784px;
+        width: auto;
         margin: 0 auto
     }
 }
@@ -12047,8 +12047,7 @@ input[type='radio']:checked+label::before {
     .stepsmodule--col4 {
         width: 752px;
         float: left;
-        margin-left: 212px;
-        margin-right: -100%
+        margin:auto;
     }
 }
 
@@ -12187,8 +12186,12 @@ input[type='radio']:checked+label::before {
 
 .stepsmodule__tab__link__icon {
     display: block;
-    color: inherit;
     margin: auto;
+    font-family: "BentonSansBBVA-BookItalic";
+    font-size: 13px;
+    color: #072146;
+    text-align: center;
+    line-height: 24px;
 }
 
 .stepsmodule__tab__link__icon__image {
@@ -19276,13 +19279,6 @@ input[type='radio']:checked+label::before {
     transition: color .33333s .33333s cubic-bezier(0.61, 0, 0.39, 1)
 }
 
-.stepsmodule__tablist .stepsmodule__tab .stepsmodule__tab__link__icon {
-    will-change: opacity;
-    -webkit-transition: opacity .33333s .33333s cubic-bezier(0.61, 0, 0.39, 1);
-    transition: opacity .33333s .33333s cubic-bezier(0.61, 0, 0.39, 1);
-    opacity: 0
-}
-
 .stepsmodule__tablist .stepsmodule__tab:hover,
 .stepsmodule__tablist .stepsmodule__tab--active {
     background-position: center 50%
@@ -19290,7 +19286,8 @@ input[type='radio']:checked+label::before {
 
 .stepsmodule__tablist .stepsmodule__tab:hover .stepsmodule__tab__link__icon,
 .stepsmodule__tablist .stepsmodule__tab--active .stepsmodule__tab__link__icon {
-    opacity: 1
+    opacity: 1;
+    color:#fff;
 }
 
 .stepsmodule__tablist .stepsmodule__tab:hover .stepsmodule__tab__link__index,
