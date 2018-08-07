@@ -1097,7 +1097,7 @@ figure {
 }
 
 .fases-title {
-    padding: 0 16px;
+    padding: 0 16px 0 40px;
     font-family: BentonSansBBVA-Medium;
     font-size: 16px;
     color: #040404;
@@ -1230,7 +1230,7 @@ tr td:nth-child(4){
 }
 
 tr td:nth-child(5){
-    font-weight: 600;
+    font-family: "BentonSansBBVA-Medium", Helvetica, Arial, sans-serif;
 }
 
 tr th:nth-child(3){
