@@ -864,7 +864,7 @@ figure {
 }
 
 .panel-body-bbva {
-    padding: 10px 15px;
+    
     color: #333;
     border-color: #ddd
 }
@@ -925,7 +925,7 @@ figure {
 .justify-content-between-bbva {
     -webkit-box-pack: justify!important;
     -ms-flex-pack: justify!important;
-    justify-content: space-between!important;
+    
 }
 
 .align-items-center-bbva {
