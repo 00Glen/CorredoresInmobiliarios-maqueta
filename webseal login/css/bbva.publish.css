@@ -1191,7 +1191,6 @@ h4,
     font-size: 36px;
     letter-spacing: -0.2px;
     line-height: 48px;
-    margin-bottom: 24px;
 }
 
 .text-button {
@@ -12124,6 +12123,7 @@ input[type='radio']:checked+label::before {
     color: #626262
 }
 
+
 .stepsmodule__tab__link__index {
     font-family: "BentonSansBBVA-Bold", Helvetica, Arial, sans-serif;
     font-size: 24px;
@@ -12205,6 +12205,194 @@ input[type='radio']:checked+label::before {
 .stepsmodule__tab__link:hover {
     text-decoration: none
 }
+
+/* ----------- */
+.dove{
+    color: #0077b5
+}
+
+.clock{
+    color: #666666;
+    opacity: 0.4;
+}
+
+.stepsmodule__tab__link2 {
+    float: left;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-transition: min-height 400ms, max-height 400ms;
+    transition: min-height 400ms, max-height 400ms;
+    color: #072146
+}
+
+
+.stepsmodule__tab__link2__index{
+    font-family: "BentonSansBBVA-Bold", Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    color: #121212;
+    text-align: left;
+    letter-spacing: -.4px;
+    line-height: 32px;
+    text-align: center;
+    color: inherit;
+    width: 100%;
+    display: block;
+    padding: 8px 0;
+}
+
+@media(min-width:600px) {
+    .stepsmodule__tab__link2__index {
+        font-size: 42px;
+        line-height: 48px
+    }
+}
+
+@media(min-width:992px) {
+    .stepsmodule__tab__link2__index {
+        padding: 32px 0
+    }
+}
+
+.stepsmodule__tab__link2__text {
+    font-family: "BentonSansBBVA-Bold", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 16px;
+    display: block;
+    color: inherit;
+    padding: 0 8px;
+    min-height: 32px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden
+}
+
+@media(min-width:600px) {
+    .stepsmodule__tab__link2__text {
+        font-size: 15px;
+        line-height: 24px
+    }
+}
+
+@media(min-width:600px) {
+    .stepsmodule__tab__link2__text {
+        margin: 16px auto;
+        padding: 0 32px
+    }
+}
+
+.stepsmodule__tab__link2__icon {
+    display: block;
+    margin: auto;
+    font-family: "BentonSansBBVA-BookItalic";
+    font-size: 13px;
+    color: #072146;
+    text-align: center;
+    line-height: 24px;
+}
+
+.stepsmodule__tab__link2__icon__image {
+    font-size: 24px
+}
+
+.stepsmodule__tab__link2__icon__image.bbva-icon {
+    margin: 0
+}
+
+.stepsmodule__tab__link2:hover {
+    text-decoration: none
+}
+
+.stepsmodule__tablist .stepsmodule__tab .stepsmodule__tab__link2__index {
+    padding: 0;
+    margin-top: 32px;
+    margin-bottom: 8px;
+    will-change: margin-top, margin-bottom;
+    -webkit-transition: margin-top .33333s cubic-bezier(0.61, 0, 0.39, 1), margin-bottom .33333s cubic-bezier(0.61, 0, 0.39, 1);
+    transition: margin-top .33333s cubic-bezier(0.61, 0, 0.39, 1), margin-bottom .33333s cubic-bezier(0.61, 0, 0.39, 1)
+}
+
+@media(min-width:600px) {
+    .stepsmodule__tablist .stepsmodule__tab .stepsmodule__tab__link2__index {
+        margin-top: 24px
+    }
+}
+
+.stepsmodule__tablist .stepsmodule__tab .stepsmodule__tab__link2{
+    will-change: color;
+    -webkit-transition: color .33333s .33333s cubic-bezier(0.61, 0, 0.39, 1);
+    transition: color .33333s .33333s cubic-bezier(0.61, 0, 0.39, 1)
+}
+
+.stepsmodule__tablist .stepsmodule__tab .dove{
+    will-change: color;
+    -webkit-transition: color .33333s .33333s cubic-bezier(0.61, 0, 0.39, 1);
+    transition: color .33333s .33333s cubic-bezier(0.61, 0, 0.39, 1)
+}
+
+.stepsmodule__tablist .stepsmodule__tab .clock{
+    will-change: color;
+    -webkit-transition: color .33333s .33333s cubic-bezier(0.61, 0, 0.39, 1);
+    transition: color .33333s .33333s cubic-bezier(0.61, 0, 0.39, 1)
+}
+
+.stepsmodule__tablist .stepsmodule__tab:hover,
+.stepsmodule__tablist .stepsmodule__tab--active {
+    background-position: center 50%
+}
+
+.stepsmodule__tablist .stepsmodule__tab:hover .stepsmodule__tab__link2__icon,
+.stepsmodule__tablist .stepsmodule__tab--active .stepsmodule__tab__link2__icon {
+    opacity: 1;
+    color:#fff;
+}
+
+.stepsmodule__tablist .stepsmodule__tab:hover .stepsmodule__tab__link2__index,
+.stepsmodule__tablist .stepsmodule__tab--active .stepsmodule__tab__link2__index {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    padding: 0
+}
+
+@media(min-width:600px) {
+    .stepsmodule__tablist .stepsmodule__tab:hover .stepsmodule__tab__link2__index,
+    .stepsmodule__tablist .stepsmodule__tab--active .stepsmodule__tab__link2__index {
+        margin-top: 24px
+    }
+}
+
+.stepsmodule__tablist .stepsmodule__tab:hover .stepsmodule__tab__link2, 
+.stepsmodule__tablist .stepsmodule__tab--active .stepsmodule__tab__link2 {
+    color: #fff;
+    -webkit-transition-delay: 0;
+    transition-delay: 0
+}
+
+.stepsmodule__tablist .stepsmodule__tab:hover .dove, 
+.stepsmodule__tablist .stepsmodule__tab--active .dove 
+{
+    color: #fff;
+    -webkit-transition-delay: 0;
+    transition-delay: 0
+}
+
+.stepsmodule__tablist .stepsmodule__tab:hover .clock, 
+.stepsmodule__tablist .stepsmodule__tab--active .clock 
+{
+    color: #fff;
+    opacity: 1;
+    -webkit-transition-delay: 0;
+    transition-delay: 0
+}
+
+/* ----------- */
 
 .stepsmodule__btn__container {
     width: 100%;
