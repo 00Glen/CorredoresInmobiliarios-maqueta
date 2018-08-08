@@ -810,6 +810,8 @@ figure {
 @media (min-width: 576px) {
     .jumbotron-bbva {
         padding: 1rem 3.2rem;
+        padding-top: 24px;
+        padding-bottom: 24px;
     }
 }
 

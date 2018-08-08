@@ -1191,7 +1191,6 @@ h4,
     font-size: 36px;
     letter-spacing: -0.2px;
     line-height: 48px;
-    margin-bottom: 24px;
 }
 
 .text-button {
@@ -12121,7 +12120,7 @@ input[type='radio']:checked+label::before {
     cursor: pointer;
     -webkit-transition: min-height 400ms, max-height 400ms;
     transition: min-height 400ms, max-height 400ms;
-    color: #626262
+    color: #072146
 }
 
 .stepsmodule__tab__link__index {
