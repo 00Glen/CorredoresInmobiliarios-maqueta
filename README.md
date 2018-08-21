@@ -1,2 +1,2 @@
 # CorredoresInmobiliarios-maqueta
-# un comentario
+# Tecnologías: Html, CSS3 y JavaScript
