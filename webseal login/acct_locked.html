@@ -25,20 +25,15 @@
     <script src="js/jquery3.3.1.min.js"></script>
     <script>
         document.oncontextmenu = new Function("return false");
-        var strError="%ERROR%";
-        var strCode = "";
-        var strTextError = "";
     </script>
     <style>
-            #errormessage {
-                margin: 4px;
-                color: #c8175e;
-                padding: 4px;
-                text-align: center;
-                font-size: 1.5em;
-                margin-bottom: 20px;
-            }
-        </style>
+        #errormessage {
+            color: #c8175e;
+            padding: 4px;
+            text-align: justify;
+            font-size: 1rem;
+        }
+    </style>
     <script>
         function redirectToForgotMyPassword() {
             var servOrigin = window.location.origin;
@@ -101,19 +96,15 @@
                 <div class="loginsec" style="width: 528px;margin-top: 100px;">
                     <form action="#" class="form-gray" method="POST">
                         <div class="containerLogin">
-                            <div class="panel-bbva panel-default-bbva" style="background-color: #FCDFDF;">
-                                <div class="panel-body-bbva" style="padding: 23px 0;">
-                                    <div class="">
-                                        <div class="align-items-center-bbva img-u31">
-                                        </div>
-                                        <span style="font-family: BentonSansBBVA-Book; font-size: 15px; color: #121212; letter-spacing: 0; line-height: 16px;">
-                                            <img src="images/icons/alert-icon.png" alt="" style="display: inline-flex; padding-right:  18px; margin-left: 23px; width: auto;">
-                                            <div id="errormessage" style="display: inline-flex;"></div>
-                                        </span>
+                            <div class="panel-bbva panel-default-bbva" style="background-color: #FCDFDF; min-height: 94px;">
+                                <div class="panel-body-bbva">
+                                    <div class="align-items-center-bbva" style="display: inline-flex;">
+                                        <img src="images/icons/alert-icon.png" alt="" style="padding-right: 18px; width: auto;">
+                                        <p id="errormessage" style="font-family: BentonSansBBVA-Book; font-size: 1rem; letter-spacing: 0; line-height: 16px;">
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="submtbtn" style="float:  right;">
                                 <a href="#" target="_blank"  title="Desbloquear" aria-label="Desbloquear" class="btn__basic" id="btnrecover" style="width: 175px;">
                                     <span aria-hidden="true">Desbloquear mi usuario</span>
@@ -151,14 +142,14 @@
     </div>
     <script src="js/bbva.publish.js"></script>
     <script>
-            var strerror = "%ERROR%";
-            if (strerror.indexOf("HPDIA0306W") != -1) {
-                strerror = "Esta cuenta ha sido bloqueada temporalmente debido a demasiados intentos de inicio de sesión fallidos.";
-            }
-            document.getElementById("errormessage").innerText = strerror;
-            document.getElementById("btnback").addEventListener("click", redirectToLogin);
-            document.getElementById("btnrecover").addEventListener("click", redirectToForgotMyPassword);
-        </script>
+        var strError = "%ERROR%";
+        if (strError.indexOf("HPDIA0306W") != -1) {
+            strError = "Esta cuenta ha sido bloqueada temporalmente debido a demasiados intentos de inicio de sesión fallidos.";
+        }
+        document.getElementById("errormessage").innerText = strError;
+        document.getElementById("btnback").addEventListener("click", redirectToLogin);
+        document.getElementById("btnrecover").addEventListener("click", redirectToForgotMyPassword);
+    </script>
 </body>
 
 </html>
