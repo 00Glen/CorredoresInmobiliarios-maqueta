@@ -166,6 +166,20 @@
     <script src="js/bundle.js"></script>
     <script src="js/bundlePwd.js"></script>
     <script>
+        //icono mostrar contraseña
+        $("i.ivisualize").click(function() {
+            _this_i = $(this);
+            _$inp = $(_this_i.attr("data-change"));
+            if (_$inp.attr("type") == "password") {
+                _$inp.attr("type", "text");
+                _this_i.addClass("blue1");
+            } else {
+                _$inp.attr("type", "password");
+                _this_i.removeClass("blue1");
+            }
+        });
+    </script>
+    <script>
         //modal de espera
         function showWait() {
             document.getElementById("waitmodal").removeAttribute("style");
